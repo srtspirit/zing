@@ -1,7 +1,11 @@
 package com.zingcrm.forms;
 
+import java.io.Serializable;
 
-public class LeadForms {
+public class LeadForms implements Serializable {
+
+	private static final long serialVersionUID = -6863394476543622601L;
+
 
 	private int id;
 	

@@ -25,11 +25,13 @@
 		/WEB-INF/hibernate-config.xml	
 		/WEB-INF/spring-security.xml
 		/WEB-INF/spring-servlet.xml	
-		/WEB-INF/mail.xml	
+		/WEB-INF/mail.xml
+		/WEB-INF/jms-config.xml
 		</param-value>
 	</context-param>
 
 	<listener>
+		<!-- <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> -->
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	

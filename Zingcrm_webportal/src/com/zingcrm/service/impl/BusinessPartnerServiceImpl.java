@@ -35,6 +35,7 @@ import com.zingcrm.entity.Source;
 import com.zingcrm.entity.State;
 import com.zingcrm.exception.BusinessException;
 import com.zingcrm.forms.LeadForms;
+import com.zingcrm.jms.JmsProducer;
 import com.zingcrm.jqgrid.xml.GridRow;
 import com.zingcrm.jqgrid.xml.GridRows;
 import com.zingcrm.jqgrid.xml.GridUserData;
@@ -57,6 +58,8 @@ public class BusinessPartnerServiceImpl implements BusinessPartnerService {
 
 	private static Logger log = Logger.getLogger(BusinessPartnerServiceImpl.class
 			.getName());
+	
+	private static final String UPDATE_BP_QUEUE_NAME = "BUSINESSPARTNER.UPDATE";
 
 	@Autowired
 	private OrgService orgService;
@@ -102,6 +105,9 @@ public class BusinessPartnerServiceImpl implements BusinessPartnerService {
 	
 	@Autowired
 	CalendarTimeZone calendar;
+	
+	@Autowired
+	private JmsProducer jmsTemplate;
 	
 	
 	private static JAXBContext JAXBCONTEXT;
@@ -437,6 +443,9 @@ public class BusinessPartnerServiceImpl implements BusinessPartnerService {
 				leadDAO.updateLead(leadForm);
 				/*data=leadForm.getAddress()+","+leadForm.getAddress2()+","+leadForm.getCityName()+","+leadForm.getStateName()+","+leadForm.getZipcode()+","+leadForm.getCountryName();
 				updateLatitude(leadForm.getId(),data);*/
+				if (!jmsTemplate.sendObjectMessage(UPDATE_BP_QUEUE_NAME, leadForm)){
+					throw new BusinessException("couldn't send integration message");
+				}
 				return "success";
 			}
 			
@@ -813,6 +822,14 @@ public class BusinessPartnerServiceImpl implements BusinessPartnerService {
 	
 	private boolean getFlag(String status) {
 		return Integer.parseInt(status) > 0 ? true : false ;
+	}
+
+	public JmsProducer getJmsTemplate() {
+		return jmsTemplate;
+	}
+
+	public void setJmsTemplate(JmsProducer jmsTemplate) {
+		this.jmsTemplate = jmsTemplate;
 	}
 
 	
