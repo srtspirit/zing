@@ -1,0 +1,243 @@
+ALTER TABLE `activity`  DROP FOREIGN KEY `FK_activity_opportunity`;
+ALTER TABLE `opportunity`  DROP FOREIGN KEY `FK_opportunity_lead`;
+ALTER TABLE `leadcontact`  DROP FOREIGN KEY `FK_leadcontact_lead`;
+ALTER TABLE `lead`  CHANGE COLUMN `Id` `LeadId` INT(10) NOT NULL DEFAULT '0' FIRST;
+ALTER TABLE `leadcontact`  ADD CONSTRAINT `FK_leadcontact_lead` FOREIGN KEY (`LeadId`) REFERENCES `lead` (`LeadId`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `leadcontact`  CHANGE COLUMN `Id` `ContactIdId` INT(10) NULL DEFAULT NULL FIRST;
+ALTER TABLE `leadcontact`  ADD PRIMARY KEY (`ContactIdId`);
+ALTER TABLE `opportunity`  CHANGE COLUMN `Id` `OpportunityId` INT(10) NOT NULL AUTO_INCREMENT FIRST;
+
+ALTER TABLE `activity`  CHANGE COLUMN `Opportunity` `OpportunityId` INT(10) NULL DEFAULT NULL AFTER `Id`;
+ALTER TABLE `activity`  CHANGE COLUMN `Id` `ActivityId` INT(10) NOT NULL AUTO_INCREMENT FIRST;
+ALTER TABLE `activity`  ADD CONSTRAINT `FK_activity_opportunity` FOREIGN KEY (`OpportunityId`) REFERENCES `opportunity` (`OpportunityId`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `opportunity`  ADD CONSTRAINT `FK_opportunity_lead` FOREIGN KEY (`OpportunityId`) REFERENCES `lead` (`LeadId`) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+ALTER TABLE `lead`  DROP FOREIGN KEY `FK_lead_city`;
+ALTER TABLE `lead`  DROP FOREIGN KEY `FK_lead_state`;
+ALTER TABLE `lead`  DROP FOREIGN KEY `FK_lead_source`;
+ALTER TABLE `lead`  DROP FOREIGN KEY `FK_lead_country`;
+ALTER TABLE `lead`  DROP INDEX `FK_lead_country`;
+ALTER TABLE `lead`  DROP INDEX `FK_lead_state`;
+ALTER TABLE `lead`  DROP INDEX `FK_lead_city`;
+ALTER TABLE `lead`  DROP INDEX `FK_lead_source`;
+
+
+ALTER TABLE `lead`  CHANGE COLUMN `City` `CityId` INT(10) NULL DEFAULT NULL AFTER `Address`,  CHANGE COLUMN `State` `StateId` INT(10) UNSIGNED NULL DEFAULT NULL AFTER `CreatedBy`,  CHANGE COLUMN `Source` `SourceId` INT(10) NULL DEFAULT NULL AFTER `ModifiedDate`,  CHANGE COLUMN `Country` `CountryId` INT(10) NULL DEFAULT NULL AFTER `Address2`;
+ALTER TABLE `lead`  ADD INDEX `CountryId` (`CountryId`);
+ALTER TABLE `lead`  ADD INDEX `CityId` (`CityId`);
+ALTER TABLE `lead`  ADD INDEX `StateId` (`StateId`);
+ALTER TABLE `lead`  ADD INDEX `SourceId` (`SourceId`);
+ALTER TABLE `source`  CHANGE COLUMN `Id` `SourceId` INT(10) NOT NULL DEFAULT '0' FIRST;
+ALTER TABLE `userrolesecurity`  CHANGE COLUMN `Id` `UserRoleId` INT(10) NOT NULL AUTO_INCREMENT FIRST;
+
+ALTER TABLE `lead`  DROP FOREIGN KEY `FK_lead_organization`;
+ALTER TABLE `lead`  CHANGE COLUMN `AccountId` `OrgId` INT(10) NULL DEFAULT NULL AFTER `AssignedRep`;
+ALTER TABLE `lead`  ADD CONSTRAINT `FK_lead_organization` FOREIGN KEY (`OrgId`) REFERENCES `organization` (`OrgId`) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+
+ALTER TABLE `lead`  ADD CONSTRAINT `FK_lead_country` FOREIGN KEY (`CountryId`) REFERENCES `country` (`CountryId`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `state`  CHANGE COLUMN `StateId` `StateId` INT(10) NULL AUTO_INCREMENT FIRST;
+UPDATE `lead` SET `StateId`=4 WHERE `LeadId`=11 LIMIT 1;
+UPDATE `lead` SET `StateId`=7 WHERE `LeadId`=7149 LIMIT 1;
+ALTER TABLE `lead`  ADD CONSTRAINT `FK_lead_city` FOREIGN KEY (`CityId`) REFERENCES `city` (`CityId`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `lead`  ADD CONSTRAINT `FK_lead_source` FOREIGN KEY (`SourceId`) REFERENCES `source` (`SourceId`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `organization`  DROP COLUMN `Column 15`;
+ALTER TABLE `state`  CHANGE COLUMN `StateId` `StateId` INT(10) NULL AUTO_INCREMENT FIRST;
+ALTER TABLE `state`  ADD INDEX `StateId` (`StateId`);
+
+ALTER TABLE `lead`  CHANGE COLUMN `StateId` `StateId` INT(10) NULL DEFAULT NULL AFTER `CreatedBy`,  ADD CONSTRAINT `FK_lead_state` FOREIGN KEY (`StateId`) REFERENCES `state` (`StateId`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `userinfo`  DROP FOREIGN KEY `FK_userinfo_account`;
+ALTER TABLE `userinfo`  CHANGE COLUMN `AccountId` `OrgId` INT(10) NOT NULL AFTER `UserId`;
+
+
+ALTER TABLE `userinfo` DROP FOREIGN KEY `FK_userinfo_roleinfo`;
+ALTER TABLE `userinfo`  ADD CONSTRAINT `FK_userinfo_roleinfo` FOREIGN KEY (`RoleId`) REFERENCES `roleinfo` (`RoleId`) ON UPDATE CASCADE ON DELETE CASCADE,  ADD CONSTRAINT `FK_userinfo_organization` FOREIGN KEY (`OrgId`) REFERENCES `organization` (`OrgId`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `organization`  CHANGE COLUMN `City` `CityId` INT(10) NOT NULL AFTER `Address`;
+
+
+
+ALTER TABLE `actionlog`  CHANGE COLUMN `RecordType` `RecordType` VARCHAR(50) NULL DEFAULT NULL AFTER `StatusDate`,  CHANGE COLUMN `UserId` `UserId` VARCHAR(50) NULL DEFAULT NULL AFTER `RecordType`;
+ALTER TABLE `activity`  CHANGE COLUMN `Name` `Name` VARCHAR(50) NULL DEFAULT NULL AFTER `OpportunityId`,  CHANGE COLUMN `CreatedBy` `CreatedBy` VARCHAR(50) NULL DEFAULT NULL AFTER `ActivityStatus`,  CHANGE COLUMN `ModifiedBy` `ModifiedBy` VARCHAR(50) NULL DEFAULT NULL AFTER `CreatedDate`,  CHANGE COLUMN `Column1` `Column1` VARCHAR(50) NULL DEFAULT NULL AFTER `Document`,  CHANGE COLUMN `Column2` `Column2` VARCHAR(50) NULL DEFAULT NULL AFTER `Column1`,  CHANGE COLUMN `Status` `Status` VARCHAR(50) NULL DEFAULT NULL AFTER `Column2`,  CHANGE COLUMN `FileName` `FileName` VARCHAR(50) NULL DEFAULT NULL AFTER `Status`;
+ALTER TABLE `activitystatus`  CHANGE COLUMN `Name` `Name` VARCHAR(50) NULL DEFAULT NULL AFTER `Id`;
+ALTER TABLE `activitystatus`  CHANGE COLUMN `Id` `StatusId` INT(10) NOT NULL FIRST;
+DROP TABLE `activitystatus`;
+ALTER TABLE `activitytype`  CHANGE COLUMN `Name` `Name` VARCHAR(50) NULL DEFAULT NULL AFTER `Id`;
+ALTER TABLE `buttons`  CHANGE COLUMN `OperationId` `OperationId` VARCHAR(50) NOT NULL AFTER `Id`,  CHANGE COLUMN `FeatureId` `FeatureId` VARCHAR(50) NOT NULL AFTER `OperationId`,  CHANGE COLUMN `ButtonId` `ButtonId` VARCHAR(50) NOT NULL AFTER `FeatureId`,  CHANGE COLUMN `ButtonTitle` `ButtonTitle` VARCHAR(100) NOT NULL AFTER `ButtonId`,  CHANGE COLUMN `ToolTip` `ToolTip` VARCHAR(100) NOT NULL AFTER `ButtonTitle`;
+ALTER TABLE `city`  CHANGE COLUMN `CityName` `CityName` VARCHAR(100) NOT NULL AFTER `CityId`,  CHANGE COLUMN `CountryCode` `CountryCode` VARCHAR(3) NOT NULL AFTER `StateId`;
+ALTER TABLE `contactinfo`  CHANGE COLUMN `UserId` `UserId` VARCHAR(50) NOT NULL AFTER `Id`,  CHANGE COLUMN `FirstName` `FirstName` VARCHAR(50) NOT NULL AFTER `UserId`,  CHANGE COLUMN `LastName` `LastName` VARCHAR(50) NULL DEFAULT NULL AFTER `FirstName`,  CHANGE COLUMN `PhoneNumber` `PhoneNumber` VARCHAR(15) NOT NULL AFTER `PhoneCountryCode`;
+ALTER TABLE `country`  CHANGE COLUMN `CountryCode` `CountryCode` VARCHAR(5) NOT NULL AFTER `CountryId`,  CHANGE COLUMN `CountryName` `CountryName` VARCHAR(100) NOT NULL AFTER `CountryCode`,  CHANGE COLUMN `CallingCode` `CallingCode` VARCHAR(8) NOT NULL AFTER `CountryName`;
+ALTER TABLE `defineddata1`  CHANGE COLUMN `Name` `Name` VARCHAR(200) NULL DEFAULT NULL AFTER `Id`;
+ALTER TABLE `defineddata2`  CHANGE COLUMN `Name` `Name` VARCHAR(200) NULL DEFAULT NULL AFTER `Data1`;
+
+ALTER TABLE `lead`  CHANGE COLUMN `Name` `Name` VARCHAR(50) NULL DEFAULT NULL AFTER `OrgId`,  CHANGE COLUMN `Address` `Address` VARCHAR(200) NULL DEFAULT NULL AFTER `Name`,  CHANGE COLUMN `ZipCode` `ZipCode` VARCHAR(10) NULL DEFAULT NULL AFTER `CityId`,  CHANGE COLUMN `CreatedBy` `CreatedBy` VARCHAR(50) NULL DEFAULT NULL AFTER `ZipCode`,  CHANGE COLUMN `ModifiedBy` `ModifiedBy` VARCHAR(50) NULL DEFAULT NULL AFTER `CreatedDate`,  CHANGE COLUMN `Latitude` `Latitude` VARCHAR(50) NULL DEFAULT NULL AFTER `CountryId`,  CHANGE COLUMN `Website` `Website` VARCHAR(100) NULL DEFAULT NULL AFTER `Latitude`,  CHANGE COLUMN `Longitude` `Longitude` VARCHAR(50) NULL DEFAULT NULL AFTER `Website`;
+
+
+ALTER TABLE `leadcontact`  CHANGE COLUMN `PrimaryName` `PrimaryName` VARCHAR(50) NULL DEFAULT NULL AFTER `LeadId`,  CHANGE COLUMN `SecondaryEmail` `SecondaryEmail` VARCHAR(50) NULL DEFAULT NULL AFTER `PrimaryName`,  CHANGE COLUMN `PrimaryPhone` `PrimaryPhone` VARCHAR(12) NULL DEFAULT NULL AFTER `SecondaryEmail`,  CHANGE COLUMN `PrimaryMobile` `PrimaryMobile` VARCHAR(12) NULL DEFAULT NULL AFTER `PrimaryPhone`,  CHANGE COLUMN `PrimaryEmail` `PrimaryEmail` VARCHAR(50) NULL DEFAULT NULL AFTER `PrimaryMobile`,  CHANGE COLUMN `PrimaryDepartment` `PrimaryDepartment` VARCHAR(50) NULL DEFAULT NULL AFTER `PrimaryEmail`,  CHANGE COLUMN `SecondaryName` `SecondaryName` VARCHAR(50) NULL DEFAULT NULL AFTER `PrimaryDepartment`,  CHANGE COLUMN `SecondaryPhone` `SecondaryPhone` VARCHAR(12) NULL DEFAULT NULL AFTER `SecondaryName`,  CHANGE COLUMN `SecondaryDepartment` `SecondaryDepartment` VARCHAR(50) NULL DEFAULT NULL AFTER `SecondaryPhone`,  CHANGE COLUMN `SecondaryMobile` `SecondaryMobile` VARCHAR(12) NULL DEFAULT NULL AFTER `SecondaryDepartment`,  CHANGE COLUMN `PrimaryLastName` `PrimaryLastName` VARCHAR(50) NULL DEFAULT NULL AFTER `SecondaryMobile`,  CHANGE COLUMN `SecondaryLastName` `SecondaryLastName` VARCHAR(50) NULL DEFAULT NULL AFTER `PrimaryLastName`;
+
+ALTER TABLE `opportunity`  CHANGE COLUMN `OpportunityName` `OpportunityName` VARCHAR(50) NULL DEFAULT NULL AFTER `Document`,  CHANGE COLUMN `CreatedBy` `CreatedBy` VARCHAR(50) NULL DEFAULT NULL AFTER `CreatedDate`,  CHANGE COLUMN `ModifiedBy` `ModifiedBy` VARCHAR(50) NULL DEFAULT NULL AFTER `CreatedBy`,  CHANGE COLUMN `Status` `Status` VARCHAR(50) NULL DEFAULT NULL AFTER `ModifiedDate`,  CHANGE COLUMN `DefaultOpportunity` `DefaultOpportunity` VARCHAR(50) NULL DEFAULT '0' AFTER `Status`;
+ALTER TABLE `organization`  CHANGE COLUMN `Address` `Address` VARCHAR(100) NOT NULL AFTER `OrgId`,  CHANGE COLUMN `CreatedBy` `CreatedBy` VARCHAR(50) NULL DEFAULT NULL AFTER `CountryId`,  CHANGE COLUMN `Name` `Name` VARCHAR(50) NOT NULL AFTER `ModifiedDate`,  CHANGE COLUMN `RegNo` `RegNo` VARCHAR(50) NULL DEFAULT NULL AFTER `Phone`,  CHANGE COLUMN `Zip` `Zip` VARCHAR(10) NOT NULL AFTER `TimeZoneId`,  CHANGE COLUMN `UserField1` `UserField1` VARCHAR(50) NULL DEFAULT NULL AFTER `Zip`,  CHANGE COLUMN `UserField2` `UserField2` VARCHAR(50) NULL DEFAULT NULL AFTER `UserField1`;
+ALTER TABLE `rolebuttonoperation`  CHANGE COLUMN `FeatureId` `FeatureId` VARCHAR(50) NOT NULL AFTER `RoleId`,  CHANGE COLUMN `OperationId` `OperationId` VARCHAR(50) NOT NULL AFTER `FeatureId`,  CHANGE COLUMN `ButtonId` `ButtonId` VARCHAR(50) NOT NULL AFTER `OrgId`,  CHANGE COLUMN `ButtonTitle` `ButtonTitle` VARCHAR(100) NOT NULL AFTER `ButtonId`,  CHANGE COLUMN `ToolTip` `ToolTip` VARCHAR(100) NOT NULL AFTER `ButtonTitle`;
+ALTER TABLE `rolefeaoperation`  CHANGE COLUMN `FeatureId` `FeatureId` VARCHAR(50) NOT NULL AFTER `Id`,  CHANGE COLUMN `FeatureTitle` `FeatureTitle` VARCHAR(100) NOT NULL AFTER `FeatureId`,  CHANGE COLUMN `FeatureLink` `FeatureLink` VARCHAR(100) NOT NULL AFTER `FeatureTitle`;
+ALTER TABLE `roleinfo`  CHANGE COLUMN `RoleName` `RoleName` VARCHAR(20) NOT NULL AFTER `RoleId`,  CHANGE COLUMN `RolePage` `RolePage` VARCHAR(30) NOT NULL AFTER `RoleName`;
+ALTER TABLE `source`  CHANGE COLUMN `Name` `Name` VARCHAR(50) NULL DEFAULT NULL AFTER `SourceId`;
+ALTER TABLE `state`  CHANGE COLUMN `CountryCode` `CountryCode` VARCHAR(3) NOT NULL AFTER `CountryId`,  CHANGE COLUMN `StateName` `StateName` VARCHAR(100) NOT NULL AFTER `CountryCode`;
+ALTER TABLE `status`  CHANGE COLUMN `Name` `Name` VARCHAR(50) NULL DEFAULT NULL AFTER `Id`,  CHANGE COLUMN `key` `key` VARCHAR(50) NULL DEFAULT NULL AFTER `Name`;
+
+ALTER TABLE `timezone`  CHANGE COLUMN `TimeZoneValue` `TimeZoneValue` VARCHAR(10) NOT NULL AFTER `TimeZoneId`,  CHANGE COLUMN `TimeZoneName` `TimeZoneName` VARCHAR(50) NOT NULL AFTER `TimeZoneValue`,  CHANGE COLUMN `TimeZoneCode` `TimeZoneCode` VARCHAR(50) NOT NULL AFTER `TimeZoneName`;
+ALTER TABLE `userinfo`  CHANGE COLUMN `Email` `Email` VARCHAR(100) NOT NULL AFTER `OrgId`,  CHANGE COLUMN `LanguageId` `LanguageId` VARCHAR(2) NULL DEFAULT 'en' AFTER `RoleId`,  CHANGE COLUMN `Status` `Status` VARCHAR(50) NOT NULL AFTER `LanguageId`,  CHANGE COLUMN `CreatedBy` `CreatedBy` VARCHAR(50) NULL DEFAULT NULL AFTER `CreatedDate`,  CHANGE COLUMN `ModifiedBy` `ModifiedBy` VARCHAR(50) NULL DEFAULT NULL AFTER `ModifiedDate`;
+
+ALTER TABLE `userrolesecurity`  CHANGE COLUMN `Authority` `Authority` VARCHAR(50) NOT NULL AFTER `UserId`;
+
+ALTER TABLE `organization`  CHANGE COLUMN `Phone` `Phone` VARCHAR(15) NOT NULL AFTER `CreatedDate`;
+ALTER TABLE `organization`  CHANGE COLUMN `Fax` `Fax` VARCHAR(15) NOT NULL AFTER `CreatedBy`;
+ALTER TABLE `organization`  CHANGE COLUMN `State` `StateId` INT(10) NOT NULL AFTER `RegNo`;
+ALTER TABLE `organization`  CHANGE COLUMN `Status` `Status` INT(10) NOT NULL DEFAULT '1' AFTER `StateId`,  CHANGE COLUMN `TimeZoneId` `TimeZoneId` INT(10) NULL DEFAULT NULL AFTER `Status`;
+
+ALTER TABLE `organization`  ADD CONSTRAINT `FK_organization_state` FOREIGN KEY (`StateId`) REFERENCES `state` (`StateId`) ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE `organization`  ADD CONSTRAINT `FK_organization_country` FOREIGN KEY (`CountryId`) REFERENCES `country` (`CountryId`) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+UPDATE `organization` SET `CityId`=162655,CountryId=14 WHERE `OrgId`=1 LIMIT 1;
+ALTER TABLE `organization`  ADD CONSTRAINT `FK_organization_city` FOREIGN KEY (`CityId`) REFERENCES `city` (`CityId`) ON UPDATE CASCADE ON DELETE CASCADE;
+INSERT INTO `status` (`Name`, `key`) VALUES ('Active', 'organization');
+UPDATE `status` SET `Id`=6 WHERE `Id`=0 LIMIT 1;
+UPDATE `organization` SET `Status`=6 WHERE `OrgId`=1 LIMIT 1;
+ALTER TABLE `organization`  CHANGE COLUMN `Status` `StatusId` INT(10) NOT NULL DEFAULT '1' AFTER `StateId`;
+ALTER TABLE `activity`  DROP FOREIGN KEY `FK_activity_status`;
+
+ALTER TABLE `opportunity`  DROP FOREIGN KEY `FK_opportunity_status`;
+ALTER TABLE `status`  CHANGE COLUMN `Id` `StatusId` INT(10) NOT NULL DEFAULT '0' FIRST;
+ALTER TABLE `status`  CHANGE COLUMN `StatusId` `StatusID` INT(10) NOT NULL DEFAULT '0' FIRST;
+
+ALTER TABLE `opportunity`  ADD CONSTRAINT `FK_opportunity_status` FOREIGN KEY (`OpportunityStatus`) REFERENCES `status` (`StatusID`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `actionlog`  CHANGE COLUMN `Id` `LogID` INT(10) NOT NULL AUTO_INCREMENT FIRST;
+
+
+
+ALTER TABLE `actionlog`  CHANGE COLUMN `OldStateId` `OldStateID` INT(10) NULL DEFAULT NULL AFTER `LogID`,  CHANGE COLUMN `NewStateId` `NewStateID` INT(10) NULL DEFAULT NULL AFTER `OldStateID`,  CHANGE COLUMN `UserId` `UserID` VARCHAR(50) NULL DEFAULT NULL AFTER `RecordType`,  CHANGE COLUMN `RecordId` `RecordID` INT(10) NULL DEFAULT NULL AFTER `CustomFlag`;
+
+ALTER TABLE `activitytype`  CHANGE COLUMN `Id` `TypeId` INT(10) NOT NULL DEFAULT '0' FIRST;
+ALTER TABLE `activity`  CHANGE COLUMN `Type` `TypeId` INT(10) NULL DEFAULT NULL AFTER `Name`;
+
+ALTER TABLE `activity`  CHANGE COLUMN `ActivityId` `ActivityID` INT(10) NOT NULL AUTO_INCREMENT FIRST,  CHANGE COLUMN `OpportunityId` `OpportunityID` INT(10) NULL DEFAULT NULL AFTER `ActivityID`;
+
+ALTER TABLE `activity`  CHANGE COLUMN `TypeId` `TypeID` INT(10) NULL DEFAULT NULL AFTER `Name`;
+ALTER TABLE `activitytype`  CHANGE COLUMN `TypeId` `TypeID` INT(10) NOT NULL DEFAULT '0' FIRST;
+ALTER TABLE `city`  CHANGE COLUMN `CityId` `CityID` INT(10) NOT NULL AUTO_INCREMENT FIRST;
+ALTER TABLE `country`  CHANGE COLUMN `CountryId` `CountryID` INT(10) NOT NULL AUTO_INCREMENT FIRST;
+ALTER TABLE `contactinfo`  CHANGE COLUMN `Id` `UserContactID` INT(10) NOT NULL AUTO_INCREMENT FIRST;
+ALTER TABLE `activitytype`  CHANGE COLUMN `OrgId` `OrgID` INT(10) NULL DEFAULT NULL AFTER `Name`;
+
+ALTER TABLE `activitytype` DROP FOREIGN KEY `FK_activitytype_organization`;
+ALTER TABLE `activitytype`  ADD CONSTRAINT `FK_activitytype_organization` FOREIGN KEY (`OrgID`) REFERENCES `organization` (`OrgId`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `organization`  CHANGE COLUMN `OrgId` `OrgID` INT(10) NOT NULL FIRST;
+
+ALTER TABLE `organization`  CHANGE COLUMN `CityId` `CityID` INT(10) NOT NULL AFTER `Address`,  CHANGE COLUMN `CountryId` `CountryID` INT(10) NOT NULL AFTER `CityID`,  CHANGE COLUMN `StateId` `StateID` INT(10) NOT NULL AFTER `RegNo`,  CHANGE COLUMN `StatusId` `StatusID` INT(10) NOT NULL DEFAULT '1' AFTER `StateID`,  CHANGE COLUMN `TimeZoneId` `TimeZoneID` INT(10) NULL DEFAULT NULL AFTER `StatusID`;
+ALTER TABLE `timezone`  CHANGE COLUMN `TimeZoneId` `TimeZoneID` INT(10) NOT NULL AUTO_INCREMENT FIRST;
+ALTER TABLE `state`  CHANGE COLUMN `StateId` `StateID` INT(10) NOT NULL AUTO_INCREMENT FIRST;
+ALTER TABLE `userinfo`  CHANGE COLUMN `UserId` `UserID` VARCHAR(50) NOT NULL FIRST;
+ALTER TABLE `userinfo`  CHANGE COLUMN `RoleId` `RoleID` INT(10) NOT NULL AFTER `Password`;
+ALTER TABLE `userrolesecurity`  CHANGE COLUMN `UserRoleId` `UserRoleID` INT(10) NOT NULL AUTO_INCREMENT FIRST,  CHANGE COLUMN `UserId` `UserID` VARCHAR(50) NOT NULL AFTER `UserRoleID`;
+
+
+ALTER TABLE `userrolesecurity` DROP FOREIGN KEY `FK_userrolesecurity_userinfo`;
+ALTER TABLE `userrolesecurity`  ADD CONSTRAINT `FK_userrolesecurity_userinfo` FOREIGN KEY (`UserID`) REFERENCES `userinfo` (`UserID`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `userinfo`  CHANGE COLUMN `OrgId` `OrgID` INT(10) NOT NULL AFTER `UserID`;
+
+
+
+ALTER TABLE `userinfo` DROP FOREIGN KEY `FK_userinfo_organization`, DROP FOREIGN KEY `FK_userinfo_roleinfo`;
+ALTER TABLE `userinfo`  ADD CONSTRAINT `FK_userinfo_organization` FOREIGN KEY (`OrgID`) REFERENCES `organization` (`OrgID`) ON UPDATE CASCADE ON DELETE CASCADE,  ADD CONSTRAINT `FK_userinfo_roleinfo` FOREIGN KEY (`RoleID`) REFERENCES `roleinfo` (`RoleId`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `source`  CHANGE COLUMN `SourceId` `SourceID` INT(10) NOT NULL DEFAULT '0' FIRST;
+ALTER TABLE `roleinfo`  CHANGE COLUMN `RoleId` `RoleID` INT(10) NOT NULL AUTO_INCREMENT FIRST;
+
+
+ALTER TABLE `organization`  ADD CONSTRAINT `FK_organization_status` FOREIGN KEY (`StatusID`) REFERENCES `status` (`StatusID`) ON UPDATE CASCADE ON DELETE CASCADE,  ADD CONSTRAINT `FK_organization_timezone` FOREIGN KEY (`TimeZoneID`) REFERENCES `timezone` (`TimeZoneID`) ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE `opportunity`  CHANGE COLUMN `LeadId` `LeadID` INT(10) NULL DEFAULT NULL AFTER `OpportunityId`;
+ALTER TABLE `opportunity`  CHANGE COLUMN `Document` `DocumentID` INT(10) NULL DEFAULT NULL AFTER `LeadID`;
+ALTER TABLE `activity`  CHANGE COLUMN `ActivityStatus` `ActivityStatusId` INT(10) NULL DEFAULT NULL AFTER `DueDate`;
+ALTER TABLE `activity`  CHANGE COLUMN `ActivityStatusId` `ActivityStatusID` INT(10) NULL DEFAULT NULL AFTER `DueDate`;
+ALTER TABLE `activity`  ADD CONSTRAINT `FK_activity_status` FOREIGN KEY (`ActivityStatusID`) REFERENCES `status` (`StatusID`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `activity` DROP FOREIGN KEY `FK_activity_userinfo`;
+ALTER TABLE `activity`  ADD CONSTRAINT `FK_activity_activityType` FOREIGN KEY (`TypeID`) REFERENCES `activityType` (`TypeID`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `opportunity`  CHANGE COLUMN `OpportunityId` `OpportunityID` INT(10) NOT NULL AUTO_INCREMENT FIRST;
+
+ALTER TABLE `activity` DROP FOREIGN KEY `FK_activity_opportunity`;
+ALTER TABLE `activity`  ADD CONSTRAINT `FK_activity_opportunity` FOREIGN KEY (`OpportunityID`) REFERENCES `opportunity` (`OpportunityID`) ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE `activitytype` DROP FOREIGN KEY `FK_activitytype_organization`;
+ALTER TABLE `activitytype`  ADD CONSTRAINT `FK_activitytype_organization` FOREIGN KEY (`OrgID`) REFERENCES `organization` (`OrgID`) ON UPDATE CASCADE ON DELETE CASCADE;
+ALTER TABLE `city`  CHANGE COLUMN `StateId` `StateID` INT(10) NOT NULL AFTER `CityName`;
+
+ALTER TABLE `city`  ADD CONSTRAINT `FK_city_state` FOREIGN KEY (`StateID`) REFERENCES `state` (`StateID`) ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE `city` DROP FOREIGN KEY `FK_city_state`;
+ALTER TABLE `city`  ADD CONSTRAINT `FK_city_state` FOREIGN KEY (`StateID`) REFERENCES `state` (`StateID`) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+ALTER TABLE `contactinfo` DROP FOREIGN KEY `FK_contactinfo_userinfo`;
+ALTER TABLE `contactinfo`  CHANGE COLUMN `UserId` `UserID` VARCHAR(50) NOT NULL AFTER `UserContactID`,  ADD CONSTRAINT `FK_contactinfo_userinfo` FOREIGN KEY (`UserID`) REFERENCES `userinfo` (`UserID`) ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE `defineddata1` DROP FOREIGN KEY `FK_defineddata1_organization`;
+ALTER TABLE `defineddata1`  CHANGE COLUMN `OrgId` `OrgID` INT(10) NULL DEFAULT NULL AFTER `Name`,  ADD CONSTRAINT `FK_defineddata1_organization` FOREIGN KEY (`OrgID`) REFERENCES `organization` (`OrgID`) ON UPDATE CASCADE ON DELETE CASCADE;
+SHOW TABLE STATUS FROM `zingcrm`;
+
+//Remove Relationship
+ALTER TABLE `defineddata2`  CHANGE COLUMN `Data1` `DataID1` INT(10) NULL DEFAULT NULL AFTER `Id`,  DROP FOREIGN KEY `FK_defineddata2_defineddata1`;
+
+ALTER TABLE `defineddata1`  CHANGE COLUMN `Id` `DataID` INT(10) NOT NULL DEFAULT '0' FIRST;
+
+ALTER TABLE `defineddata2`  ADD CONSTRAINT `FK_defineddata2_defineddata1` FOREIGN KEY (`DataID1`) REFERENCES `defineddata1` (`DataID`) ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE `document` DROP FOREIGN KEY `FK_document_organization`;
+ALTER TABLE `document`  CHANGE COLUMN `Id` `Id` INT(10) NOT NULL DEFAULT '0' FIRST,  CHANGE COLUMN `OrgId` `OrgID` INT(10) NULL DEFAULT NULL AFTER `DocumentId`,  ADD CONSTRAINT `FK_document_organization` FOREIGN KEY (`OrgID`) REFERENCES `organization` (`OrgID`) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+
+ALTER TABLE `lead` DROP FOREIGN KEY `FK_lead_city`, DROP FOREIGN KEY `FK_lead_country`, DROP FOREIGN KEY `FK_lead_organization`, DROP FOREIGN KEY `FK_lead_source`, DROP FOREIGN KEY `FK_lead_state`, DROP FOREIGN KEY `FK_lead_userinfo`;
+ALTER TABLE `lead`  CHANGE COLUMN `LeadId` `LeadID` INT(10) NOT NULL DEFAULT '0' FIRST,  CHANGE COLUMN `OrgId` `OrgID` INT(10) NULL DEFAULT NULL AFTER `AssignedRep`,  CHANGE COLUMN `CityId` `CityID` INT(10) NULL DEFAULT NULL AFTER `Address`,  CHANGE COLUMN `StateId` `StateID` INT(10) NULL DEFAULT NULL AFTER `CreatedBy`,  CHANGE COLUMN `SourceId` `SourceID` INT(10) NULL DEFAULT NULL AFTER `ModifiedDate`,  CHANGE COLUMN `CountryId` `CountryID` INT(10) NULL DEFAULT NULL AFTER `Address2`,  DROP COLUMN `Company`,  ADD CONSTRAINT `FK_lead_city` FOREIGN KEY (`CityID`) REFERENCES `city` (`CityID`) ON UPDATE CASCADE ON DELETE CASCADE,  ADD CONSTRAINT `FK_lead_country` FOREIGN KEY (`CountryID`) REFERENCES `country` (`CountryID`) ON UPDATE CASCADE ON DELETE CASCADE,  ADD CONSTRAINT `FK_lead_organization` FOREIGN KEY (`OrgID`) REFERENCES `organization` (`OrgID`) ON UPDATE CASCADE ON DELETE CASCADE,  ADD CONSTRAINT `FK_lead_source` FOREIGN KEY (`SourceID`) REFERENCES `source` (`SourceID`) ON UPDATE CASCADE ON DELETE CASCADE,  ADD CONSTRAINT `FK_lead_state` FOREIGN KEY (`StateID`) REFERENCES `state` (`StateID`) ON UPDATE CASCADE ON DELETE CASCADE,  ADD CONSTRAINT `FK_lead_userinfo` FOREIGN KEY (`AssignedRep`) REFERENCES `userinfo` (`UserID`) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+
+ALTER TABLE `leadcontact` DROP FOREIGN KEY `FK_leadcontact_lead`;
+ALTER TABLE `leadcontact`  CHANGE COLUMN `ContactIdId` `ContactID` INT(10) NOT NULL DEFAULT '0' FIRST,  CHANGE COLUMN `LeadId` `LeadID` INT(10) NULL DEFAULT NULL AFTER `ContactID`,  ADD CONSTRAINT `FK_leadcontact_lead` FOREIGN KEY (`LeadID`) REFERENCES `lead` (`LeadID`) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+
+ALTER TABLE `opportunity`  CHANGE COLUMN `OpportunityStatus` `OpportunityStatusID` INT(10) NULL DEFAULT NULL AFTER `CurrencyValue`,  DROP FOREIGN KEY `FK_opportunity_status`;
+
+
+
+ALTER TABLE `opportunity` DROP FOREIGN KEY `FK_opportunity_lead`;
+ALTER TABLE `opportunity`  ADD CONSTRAINT `FK_opportunity_lead` FOREIGN KEY (`OpportunityID`) REFERENCES `lead` (`LeadID`) ON UPDATE CASCADE ON DELETE CASCADE,  ADD CONSTRAINT `FK_opportunity_status` FOREIGN KEY (`OpportunityStatusID`) REFERENCES `status` (`StatusID`) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+ALTER TABLE `buttons`  CHANGE COLUMN `RoleId` `RoleID` INT(10) NOT NULL AFTER `ButtonGroup`;
+
+ALTER TABLE `buttons` DROP FOREIGN KEY `FK_buttons_roleinfo`;
+ALTER TABLE `buttons`  ADD CONSTRAINT `FK_buttons_roleinfo` FOREIGN KEY (`RoleID`) REFERENCES `roleinfo` (`RoleID`) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+ALTER TABLE `rolebuttonoperation` DROP FOREIGN KEY `FK_rolebuttonoperation_organization`, DROP FOREIGN KEY `FK_rolebuttonoperation_roleinfo`;
+ALTER TABLE `rolebuttonoperation`  CHANGE COLUMN `RoleId` `RoleID` INT(10) NOT NULL AFTER `Id`,  CHANGE COLUMN `OrgId` `OrgID` INT(10) NOT NULL AFTER `OperationId`,  ADD CONSTRAINT `FK_rolebuttonoperation_organization` FOREIGN KEY (`OrgID`) REFERENCES `organization` (`OrgID`) ON UPDATE CASCADE ON DELETE CASCADE,  ADD CONSTRAINT `FK_rolebuttonoperation_roleinfo` FOREIGN KEY (`RoleID`) REFERENCES `roleinfo` (`RoleID`) ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE `rolebuttonoperation`  CHANGE COLUMN `FeatureId` `FeatureID` VARCHAR(50) NOT NULL AFTER `RoleID`,  CHANGE COLUMN `OperationId` `OperationID` VARCHAR(50) NOT NULL AFTER `FeatureID`,  CHANGE COLUMN `ButtonId` `ButtonID` VARCHAR(50) NOT NULL AFTER `OrgID`;
+
+ALTER TABLE `rolefeaoperation`  CHANGE COLUMN `FeatureId` `FeatureID` VARCHAR(50) NOT NULL AFTER `Id`;
+
+ALTER TABLE `leadcontact`  CHANGE COLUMN `ContactID` `ContactID` INT(10) NULL AUTO_INCREMENT FIRST;
+
+ALTER TABLE `organization`  ADD COLUMN `ModifiedBy` VARCHAR(50) NULL AFTER `UserField2`;
+
+ALTER TABLE `userinfo`  CHANGE COLUMN `LanguageId` `LanguageID` VARCHAR(2) NULL DEFAULT 'en' AFTER `RoleID`,  CHANGE COLUMN `TimeZoneId` `TimeZoneID` INT(5) NOT NULL AFTER `Status`;
+ALTER TABLE `userinfo`  ADD CONSTRAINT `FK_userinfo_timezone` FOREIGN KEY (`TimeZoneID`) REFERENCES `timezone` (`TimeZoneID`) ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE `userinfo`  CHANGE COLUMN `Enabled` `Enabled` TINYINT(1) NULL DEFAULT NULL AFTER `ModifiedBy`;
+
+ALTER TABLE `status`  CHANGE COLUMN `Name` `Name` VARCHAR(50) NOT NULL AFTER `StatusID`,  CHANGE COLUMN `key` `key` VARCHAR(50) NOT NULL AFTER `Name`;
+INSERT INTO `status` (`StatusID`, `Name`, `key`) VALUES (7, 'Inactive', 'organization');
+ALTER TABLE `activity`  ADD CONSTRAINT `FK_activity_userinfo` FOREIGN KEY (`AssignedTo`) REFERENCES `userinfo` (`UserID`) ON UPDATE CASCADE ON DELETE CASCADE;

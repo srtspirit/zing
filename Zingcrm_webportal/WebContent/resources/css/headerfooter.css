@@ -1,0 +1,162 @@
+#header-topbar-wrapper {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;    
+}
+#header-topbar-wrapper #header-topbar {    
+    margin: 0 auto;
+    width: 940px;
+}
+#header-topbar-wrapper #header-topbar a {
+    margin-left: 10px;
+    text-decoration: none;
+}
+#header-topbar-wrapper #header-account-controls {
+    font-size: 12px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    line-height: 25px;
+    overflow: hidden;
+    padding: 8px 0;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;    
+}
+#header-topbar-wrapper #header-account-controls #header-account-controls-links {
+    float: right;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    padding-left: 5px;
+    position: relative;
+    font-size: 12px;
+    height:27px;
+    overflow:hidden;
+}
+.topHeaderBg{
+	background: rgba(61,60,61,1);
+background: -moz-linear-gradient(top, rgba(61,60,61,1) 0%, rgba(19,19,19,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(61,60,61,1)), color-stop(100%, rgba(19,19,19,1)));
+background: -webkit-linear-gradient(top, rgba(61,60,61,1) 0%, rgba(19,19,19,1) 100%);
+background: -o-linear-gradient(top, rgba(61,60,61,1) 0%, rgba(19,19,19,1) 100%);
+background: -ms-linear-gradient(top, rgba(61,60,61,1) 0%, rgba(19,19,19,1) 100%);
+background: linear-gradient(to bottom, rgba(61,60,61,1) 0%, rgba(19,19,19,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d3c3d', endColorstr='#131313', GradientType=0 );
+    font-family: Raleway,Roboto,Lucida Grande,sans-serif;
+    font-size: 14px;
+    height: 27px;
+    margin: auto;
+    text-align: left;
+    width: 99.7%;
+    color:#fff;
+    line-height:27px;
+}
+#header-topbar-wrapper #header-account-controls #header-account-controls-links a {
+ 	color: #ffffff;
+    display: inline-block;
+    margin: -8px -10px -8px 0;
+    padding: 8px 10px;
+}
+#header-topbar-wrapper #header-account-controls #header-account-controls-links a:hover {    
+    text-decoration: underline;
+}
+.subheader-wrapper {
+    background-color: #CBCBCB;
+    background-image: linear-gradient(to bottom, #E6E6E6 0%, #AAAAAA 100%);
+    border-bottom: 1px solid #444444;
+    border-top: 1px solid #FFFFFF;
+    clear: left;
+}
+.subheader-wrapper .subheader {
+    height: auto !important;
+    margin: 0 auto;
+    min-height: 8px;
+    padding: 10px 0;
+    position: relative;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    width: 940px;
+}
+#global-new {
+    float: left;
+    margin-top: 3px;
+    margin-left: 360px;
+    position: relative;
+    z-index: 1000;
+}
+
+.page-body-container {
+    clear: both;
+    position: relative;
+    
+}
+.page-body-wrapper {
+   -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: #fff;
+    border-color: #E5E5E5 #DBDBDB #D2D2D2;  
+    border-image: none;
+    border-style: none;
+    border-width: 1px;  
+    border-collapse: separate;  
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);    
+    min-height: 450px;
+    max-width: 1170px;
+    display:inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    text-align: center;
+    width:97%;
+}
+.page-body {
+    position: relative;
+    text-align: left;
+    padding:3px;
+   /*added line*/
+    margin: 9px;
+    display:inline-block;
+    
+    /**/
+    width: 1130px;
+}
+.page-body-footer {
+    clear: both;
+    height: 40px;
+}
+
+.search {
+	background-repeat: no-repeat;
+    margin-bottom: 30px;
+    padding: 10px;
+    position: relative;
+}
+
+.filter {
+	background-repeat: no-repeat;
+    margin-bottom: 30px;    
+    position: relative;
+}
+
+.foot {
+	margin-top: 50px;
+	display: inline-block;
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    font-size: 11px;
+    color: #AAAAAA;
+    text-transform: none;
+    text-align: center;
+  /*   text-shadow: 0 2px 0 #FFFFFF; */
+}
+
+.foot a, .foot span{
+	color: #000000;
+	text-decoration: none;    
+	/* text-shadow: 0 2px 0 #FFFFFF; */
+}
+
+.foot a:hover{
+	text-decoration: underline;	   
+}
+
+.sep {
+    color: #CCCCCC;
+    font-size: 9px;
+    padding: 0 3px;
+}

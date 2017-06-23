@@ -1,0 +1,22 @@
+/************************************************************
+Date:21/11/2014
+Author: Sasirekha
+Description: New rows inserted in source table 
+*************************************************************/
+INSERT INTO `source` (`SourceID`, `Name`, `Id`) VALUES (4, 'Promo Agent', 4);
+INSERT INTO `source` (`SourceID`, `Name`, `Id`) VALUES (5, 'Packaging Show', 5);
+/************************************************************/
+Date:04/12/2014
+Author: Sasirekha
+Description: Duplicate button 'Create' in Activity page deleted for General role
+************************************************************/
+DELETE FROM rolebuttonoperation WHERE RoleID='6' and ButtonID='cmdCreateActivity' and ID='123'
+//else
+//DELETE FROM `zingcrm`.`rolebuttonoperation` WHERE `rolebuttonoperation`.`ID` = 123
+/***********************************************************/
+Date:04/12/2014
+Author: Sasirekha
+Description: New row added in rolebasedfuntion table to give changepassword page access to support role
+************************************************************/
+INSERT INTO `rolebasedfunction` (`Id`, `Role`, `Page`, `PageName`, `FeatureId`, `LinkOrder`, `LinkGroup`) VALUES (38, 5, '/changepwd', 'Change Password', 'FEA_CHANGEPWD', 1, 3);
+/***********************************************************/

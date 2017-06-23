@@ -1,0 +1,78 @@
+<?xml  version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:lang="http://www.springframework.org/schema/lang"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd         http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd         http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+<!-- p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://192.168.1.33:3306/zingcrm"
+		p:username="zingcrm_admin" p:password="zingcrm_admin" />
+		
+			p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://54.84.92.162:3306/zingcrm"
+		p:username="zingcrm_admin" p:password="crmWorld#@!" /> -->
+		<!--  <bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://192.168.100.206:3307/zingcrm"
+		p:username="zingcrm_admin" p:password="zingcrm_admin" /> 
+		 -->
+		<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://54.84.92.162:3306/zingcrm"
+		p:username="zingcrm_admin" p:password="crmWorld#@!" /> 
+	<context:annotation-config />
+	<context:component-scan base-package="com.zingcrm.entity" />
+	<context:component-scan base-package="com.zingcrm" />
+	<context:component-scan base-package="com.zingcrm.testservice" />
+<!-- 	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://192.168.100.206:3307/zingcrm"
+		p:username="zingcrm_admin" p:password="zingcrm_admin" /> -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="annotatedClasses">
+			<list>
+			    <!-- <value>com.zingcrm.entity.ForgotPassword</value> -->
+			     <value>com.zingcrm.entity.User</value>
+			     <value>com.zingcrm.entity.OrganizationInfo</value>
+			      <value>com.zingcrm.entity.RoleButtonOperation</value>
+			      <value>com.zingcrm.entity.Source</value>
+			      <value>com.zingcrm.entity.ContactInfo</value>
+			      <value>com.zingcrm.entity.BusinessPartner</value>
+			      <value>com.zingcrm.entity.BusinessPartnerContact</value>
+			      <value>com.zingcrm.entity.Opportunity</value>
+		          <value>com.zingcrm.entity.Activity</value>  
+		          <value>com.zingcrm.entity.Country</value>   
+		          <value>com.zingcrm.entity.TimeZone</value>   
+		          <value>com.zingcrm.entity.Role</value> 
+	              <value>com.zingcrm.entity.Authority</value> 
+	              <value>com.zingcrm.entity.Document</value> 
+	              <value>com.zingcrm.entity.Status</value> 
+	               <value>com.zingcrm.entity.DefinedData1</value> 
+	               <value>com.zingcrm.entity.DefinedData2</value> 
+	               <value>com.zingcrm.entity.ActivityType</value>
+	               <value>com.zingcrm.entity.State</value>   
+	               <value>com.zingcrm.entity.City</value>   
+	               <value>com.zingcrm.entity.ActionLog</value>   
+	               <value>com.zingcrm.entity.LeadRequest</value>   
+	               <value>com.zingcrm.entity.ExpectedValue</value>   
+	               <value>com.zingcrm.entity.ActivityReference</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+</beans>

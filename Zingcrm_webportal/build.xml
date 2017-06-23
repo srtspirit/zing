@@ -1,0 +1,76 @@
+<project name="Zing" default="voilationRep" basedir=".">
+	<target name="init">
+		<property name="sourceDir" value="src" />
+		<property name="outputDir" value="./build/classes" />
+		<property name="lib.dir" value="./WebContent/WEB-INF/lib" />
+	</target>
+	<path id="build.classpath">
+	<!--Need to change this server lib location -->
+		<fileset dir="/opt/neshprojlib">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+	<target name="clean" depends="init">
+		<delete dir="${outputDir}" />
+	</target>
+	<target name="prepare" depends="clean">
+		<mkdir dir="${outputDir}" />
+	</target>
+	<target name="compile" depends="prepare,checkstyle,reportpmd">
+		<javac srcdir="${sourceDir}" destdir="${outputDir}">
+			<exclude name="com/zingcrm/testservice/**" />
+			<classpath refid="build.classpath" />
+		</javac>
+	</target>
+
+	<target name="checkstyle" description="Generates a report of code convention violations."
+		depends="init-checkstyle">
+
+		<checkstyle config="src/checkstyle.xml" failureProperty="checkstyle.failure"
+			failOnViolation="false">
+			<formatter type="xml"
+				tofile="build/Zing_checkstyle_error_reportV1.xml" />
+			<fileset dir="src" includes="**/*.java" />
+		</checkstyle>
+	</target>
+
+	<target name="init-checkstyle">
+		<path id="checkstyle.lib.path">
+			<fileset dir="WebContent/WEB-INF/lib" includes="checkstyle-5.3-all.jar" />
+		</path>
+		<taskdef resource="checkstyletask.properties" classpathref="checkstyle.lib.path" />
+	</target>
+
+	<target name="reportpmd" depends="init-PMD">
+		<pmd rulesetfiles="src/pmdRule.xml">
+			<formatter type="xml" toFile="build/Zing_pmd_error_reportV1.xml" />
+			<fileset dir="src" includes="**/*.java" />
+		</pmd>
+	</target>
+
+	<target name="init-PMD">
+		<path id="pmd.lib.path">
+			<fileset dir="WebContent/WEB-INF/lib" includes="pmd-4.2.5.jar,jaxen-1.1.1.jar,asm-3.1.jar" />
+		</path>
+		<taskdef name="pmd" classname="net.sourceforge.pmd.ant.PMDTask"
+			classpathref="pmd.lib.path" />
+	</target>
+	
+	<target name="voilationRep" depends="compile,init-findbug">
+		<findbugs home="WebContent/WEB-INF/lib"
+              output="xml"
+              outputFile="build/Zing_findbug_error_reportV1.xml">
+		  <auxClasspath path="WebContent/WEB-INF/lib/jakarta-regexp.jar" />
+		  <sourcePath path="src/com" />
+		  <class location="build/classes/com" />
+		</findbugs>
+	</target>
+
+	<target name="init-findbug">
+		<path id="findbug.lib.path">
+			<fileset dir="WebContent/WEB-INF/lib" includes="findbugs.jar" />
+		</path>
+		<taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask"
+			classpathref="findbug.lib.path" />
+	</target>
+</project>

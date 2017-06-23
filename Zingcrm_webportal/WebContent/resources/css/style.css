@@ -1,0 +1,1587 @@
+
+
+/* HTML elements  */		
+@charset "utf-8";
+/* CSS Document */
+	h1, h2, h3, h4, h5, h6{
+		font-weight:normal;
+		margin:0;
+		line-height:1.1em;
+		color:#000;
+		}	
+	h1{font-size:2em;margin-bottom:.5em;}	
+	h2{font-size:1.75em;margin-bottom:.5142em;padding-top:.2em;}	
+	h3{font-size:1.5em;margin-bottom:.7em;padding-top:.3em;}
+	h4{font-size:1.25em;margin-bottom:.6em;}
+	h5,h6{font-size:1em;margin-bottom:.5em;font-weight:bold;}
+	
+	p, blockquote, ul, ol, dl, form,  pre{line-height:inherit;margin:0 0 1.5em 0;}
+	
+	ul, ol, dl{padding:0;}
+	ul ul, ul ol, ol ol, ol ul, dd{margin:0;}
+	li{margin:0 0 0 2em;padding:0;display:list-item;list-style-position:outside;}	
+	blockquote, dd{padding:0 0 0 2em;}
+	pre, code, samp, kbd, var{font:100% Raleway, Roboto, Lucida Grande, sans-serif;;}
+	pre{overflow:auto;}
+	abbr, acronym{
+		text-transform:uppercase;
+		border-bottom:1px dotted #000;
+		letter-spacing:1px;
+		}
+	abbr[title], acronym[title]{cursor:help;}
+	small{font-size:.9em;}
+	sup, sub{font-size:.8em;}
+	em, cite, q{font-style:italic;}
+	img{border:none;}			
+	hr{display:none;}	
+	/* table{width:100%;border-collapse:collapse;} */
+	th,caption{text-align:left;}
+	/* form div{margin:.3em 0;clear:both;} */
+	label{display:block;padding-bottom: 5px;font-size: 13px;font-weight:bold; font-family: Segoe UI, arial, arial;color:#666;}
+	/* fieldset{margin:0;padding:0;border:none;} */
+	legend{font-weight:bold;}
+	input[type="radio"],input[type="checkbox"], .radio, .checkbox{margin:0 .25em 0 0;}
+	
+
+/* //  HTML elements */	
+
+/* base */
+
+body,  input, textarea, select, li, button{
+	font:14px  "Roboto", "arial" Lucida Grande, sans-serif; 
+	line-height:1.5em;
+	color:#000;
+}	
+body{
+	font-size:14px;
+	/*background:#F5FCFF;*/
+	 background:  url(/resources/images/fabric-patterns-6.jpg) repeat; 
+    /* background-repeat:  repeat-x, repeat;*/ 
+    /*background-position:bottom;*/
+    background-position:0% 125%;
+    /*background-size: 1700px 600px;*/
+    background-attachment: fixed;
+    background-size: contain;
+    -moz-background-size: contain;
+
+  	text-align:center;
+	margin:0;	
+}
+
+
+	.container {	width: 100%;	position: relative;margin-bottom: 92px;}
+
+	.head {	margin-bottom: 20px;	font-size: 27px;    text-shadow: 0 2px 0 rgba(255,255,255,0.8);    display: inline-block;    color: #464646;}
+
+	.reghead {	padding-bottom: 15px;	}
+
+
+	.logo {background: url("/resources/images/wms-clogo.png");    height: 81px;    margin-left: 162px;    width: 150px;    float: left;}
+	
+	.double{	width: 97%;	height:45px;}
+
+	.logohead {	color: #464646;    display: inline-block;    font-family: "Raleway", "Roboto", Lucida Grande, sans-serif;    font-size: 24px;    font-weight: bold;    text-shadow: 0 2px 0 rgba(255, 255, 255, 0.8);    margin-top: 18px;    float: left;  	}
+
+	.logoheader {	max-width: 1200px;	margin: 0 auto;	position: relative;    text-align: center;    padding-bottom:5px;    background:url(../images/banner.png);}
+
+	.tdlogoheader {	float:left;	width:320px;	margin-left:-160px;}
+
+	.subtitle {	margin-top: 20px;	margin-bottom: 10px;	font-size: 20px;    text-shadow: 0 2px 0 rgba(255,255,255,0.8);    display: inline-block;    color: #464646;}
+
+	.titlehead {	font-size: 16px;	text-shadow: 0 2px 0 rgba(255,255,255,0.8);   color: #7e1d06;}
+
+	.titlehead a{	font-size: 16px;	text-shadow: 0 2px 0 rgba(255,255,255,0.8);    text-decoration: none;    color: #3B5998;}
+
+	.titlehead a:hover{	text-decoration: underline;}
+
+	#successhead{	position:relative;    font-size:30px;    font-family:"Raleway", "Roboto", Lucida Grande, sans-serif;    src: url("/resources/font/MankSans.ttf") format("truetype");    letter-spacing:-1px;    padding-top:30px;}
+
+	#successheadbg{	min-height:84px;    width:100%;}
+
+	#successtable {	width:600px; /*680px;*/	border: 1px solid #d5e2f6;	background: #fff;	border-radius:5px;	padding:5px;	 box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.75);  margin-top: 75px;}
+	
+	.backlink {width:300px; float:right;}
+	.backlink a{font-family: Segoe UI, arial;	font-size:14px;	color:#0072C6;	text-decoration:none;	text-align:right;	cursor:pointer; float:right; }
+	
+	.backlink a:hover{	font-family: Segoe UI, arial;	font-size:14px;	color:#0072C6;	text-decoration:underline;	text-align:right;	cursor:pointer;}
+
+	.viewspan {	color: #32A6DC;}
+
+	.leftimgbox {    float: left;    border-bottom: 1px dotted #DDDDDD;    padding-bottom: 27px;    height: 64px;}
+
+	.pBox {    height: 64px;    padding-left: 10px;    width: 850px;}
+
+	.personalizeimgbox {float: left;    border-bottom: 1px dotted #DDDDDD;    padding-bottom: 25px;}
+
+	.persBox {    height: 62px;    padding-left: 10px;    width: 850px;}
+
+	.boxContent {    color: #555555;    font-size: 14px;    padding: 0px;   }
+	
+	.boxLink {    color: #3B5998;    font-size: 11px;    text-decoration: none;}
+	
+	.boxLink:hover {    color: #1155CC;    font-size: 11px;    text-decoration: underline;}
+
+	.infotitle {	width: 300px;	margin-left:14px;	float:left;}
+
+	.infotitletd {	width: 50px;}
+	
+	.boximgconst{	margin-left:360px;	margin-top:100px;}
+
+	.infotitlehead {	color: #2d3d59;    display: inline-block;    font-size: 20px;    margin: 2px 0 0px 0 !important;    font-weight:600;}
+
+	.subhead {    border-bottom: 0px solid #F1F0F5;    color: #000;    font-size: 17px;    font-weight: normal;    padding-top: 0px;    padding-left:15px;    font-family:"Roboto",arial;text-align: left;}
+
+	.regsubhead {    border-bottom: 1px solid #F1F0F5;    color: #999999;    font-size: 17px;    font-weight: normal;    padding-top: 20px;    width: 800px;}
+
+	.fieldselect {	border: 1px solid rgba(0, 0, 0, 0.27);	width: 270px;	height: auto;	padding: 2px;}
+
+	.regfieldselect {border: 1px solid rgba(0, 0, 0, 0.27);	width: 186px;	height: auto;	padding: 2px;	font-size:12px;}
+
+	.fieldselectcountry {	border: 1px solid rgba(0, 0, 0, 0.27);	width: 384px;	height: auto;	padding: 2px;	font-size:12px;}
+
+	.fieldtitle {	padding-top: 10px;	padding-left: 15px; margin-bottom:0px;}
+
+	.fieldsubtitle {	padding-left: 15px;}
+
+	.fieldtextarea {	border:1px solid #ccc;	width:847px;	height:80px;	font-size:12px;	line-height:1em;	padding:4px;	margin-bottom:20px;	resize:none;}
+	
+	.fieldtextarea1 {	border:1px solid #ccc;	width:251px;	height:80px;	font-size:12px;	line-height:1em;	padding:4px;	margin-bottom:20px;	resize:none;}
+
+	.fieldtextarea:hover{    border-color: #B7B7B7;}
+ 
+	.fieldtextarea:focus{    border-color: #32A6DC;    outline: none; }
+
+	.fieldinputlastname {	border:1px solid #ccc;	width:175px;	font-size:12px;	line-height:1em;	padding:4px;	margin-left: 198px;	margin-top: -12px;}
+
+	.fieldinputlastname:hover{    border-color: #B7B7B7;}
+ 
+	.fieldinputlastname:focus{    border-color: #32A6DC;    outline: none; /* Remove Chrome's outline */}
+
+	.fieldinput {	border:1px solid #ccc;	width:250px;	font-size:12px;	line-height:1em;	padding:4px;	font-family:Segoe UI, arial;}
+
+	.fieldeffortassg_equip {	border:1px solid #ccc;	width:175px;	font-size:12px;	line-height:1em;	padding:4px;	margin-left:13px;}
+
+	.fieldeffortassg_effort {	border:1px solid #ccc;	width:175px;	font-size:12px;	line-height:1em;	padding:4px;	margin-left:5px;}
+
+	.fieldinput:hover{    border-color: #B7B7B7;}
+ 
+	.fieldinput:focus{    border-color: #32A6DC;    outline: none; /* Remove Chrome's outline */}
+
+	.contField{	float: right;	    font-family: arial;    font-size: 14px;    height: 20px;    line-height: 20px;}
+
+	.contField select{	width:100px;	margin-right:5px;	float:left;	height:25px;	line-height:25px;	 border: 1px solid #CCCCCC;	 padding: 2px;	 font-size: 12px;}
+
+	.contField input{	min-width:200px;}
+
+	.regfieldinput {	border:1px solid #ccc;	width:175px;	font-size:12px;	line-height:1em;	padding:4px;}
+
+	.regfieldinput:hover{    border-color: #B7B7B7;}
+ 
+	.regfieldinput:focus{    border-color: #32A6DC;    outline: none; /* Remove Chrome's outline */}
+
+	.regfieldtextarea {	border:1px solid #ccc;	width:375px;	height:80px;	font-size:12px;	line-height:1em;	padding:4px;}
+
+	.regfieldtextarea:hover{    border-color: #B7B7B7;}
+ 
+	.regfieldtextarea:focus{    border-color: #32A6DC;    outline: none; /* Remove Chrome's outline */}
+
+	.fieldinputac {	border:1px solid #ccc;	width:200px;	font-size:12px;	line-height:1em;	padding:4px;	font-family:"roboto",arial;}
+
+	.fieldinputac:hover{    border-color: #B7B7B7;}
+ 
+	.fieldinputac:focus{    border-color: #32A6DC;    outline: none; /* Remove Chrome's outline */}
+
+	.filetable {	padding-left:15px;	width:380px;}
+
+	p.name {	margin-left: 200px;    margin-top: -48px;    font-size: 11px;}
+
+	#agreement {	width: 280px;}
+
+	#agreement a {	text-decoration: none;	color: #32A6DC;}
+	
+	#agreement a:hover {	text-decoration: underline;}
+
+.createBoa{
+	float:right;
+	margin-right:5px;
+	width:200px;
+}
+.createBoa select {
+	min-width:200px;
+}
+.clickbutton {
+	/* background: -moz-linear-gradient(center top , #b4c8e6 0%, #154a9b 100%) repeat scroll 0 0 transparent;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b4c8e6), color-stop(100%,#154a9b));
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4c8e6', endColorstr='#154a9b',GradientType=0 ); */
+	 background: rgba(169,3,41,1);
+	background: -moz-linear-gradient(top, rgba(169,3,41,1) 0%, rgba(109,0,25,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(169,3,41,1)), color-stop(100%, rgba(109,0,25,1)));
+	background: -webkit-linear-gradient(top, rgba(169,3,41,1) 0%, rgba(109,0,25,1) 100%);
+	background: -o-linear-gradient(top, rgba(169,3,41,1) 0%, rgba(109,0,25,1) 100%);
+	background: -ms-linear-gradient(top, rgba(169,3,41,1) 0%, rgba(109,0,25,1) 100%);
+	background: linear-gradient(to bottom, rgba(169,3,41,1) 0%, rgba(109,0,25,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=0 );
+	    color: #fff;
+    border: 0 none;
+    border-radius: 6px 6px 6px 6px;
+    box-shadow: 0 2px rgba(0, 0, 0, 0.1), 0 -3px rgba(0, 0, 0, 0.1) inset;
+    color: white;
+    cursor: pointer;
+    display: block;
+    font-family: "roboto",arial; 
+    font-size: 14px;
+    outline: 0 none;
+    overflow: visible;
+    padding: 5px /*10px*/;
+    text-shadow: 0 1px 2px #588020;
+    text-decoration: none;
+    width: 130px;/*95px;*/
+    font-weight:bold;
+}
+
+.clickbutton:hover {
+	opacity:0.9;
+	filter:alpha(opacity=90); /* For IE8 and earlier */	
+	background: rgba(109,0,25,1);
+	background: -moz-linear-gradient(top, rgba(109,0,25,1) 0%, rgba(169,3,41,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(109,0,25,1)), color-stop(100%, rgba(169,3,41,1)));
+	background: -webkit-linear-gradient(top, rgba(109,0,25,1) 0%, rgba(169,3,41,1) 100%);
+	background: -o-linear-gradient(top, rgba(109,0,25,1) 0%, rgba(169,3,41,1) 100%);
+	background: -ms-linear-gradient(top, rgba(109,0,25,1) 0%, rgba(169,3,41,1) 100%);
+	background: linear-gradient(to bottom, rgba(109,0,25,1) 0%, rgba(169,3,41,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6d0019', endColorstr='#a90329', GradientType=0 );
+}
+
+	.buttable {	width:220px;	padding-left:15px;	padding-top:15px;}
+
+	.regbuttable {	width:220px;	padding-top:15px;}
+
+	.Statusfloat {    float: left;    padding-left: 15px;    border-top: 1px solid rgba(255,255,255,1);       font-size: 14px;    line-height: 30px;}
+
+	.Statusfloatlast {	width: 25%;    float: left;    padding-left: 15px;    border-top: 1px solid rgba(255,255,255,1);       font-size: 14px;    line-height: 30px;}
+
+	.Statusfloat:first-of-type {    padding-right: 70px;    width: 200px;}
+
+	.Statusfloat:last-of-type {    padding-left: 100px;    margin-top: 29px;}
+
+	.field{	border:1px solid #ccc;	width:280px;	font-size:12px;	line-height:1em;	padding:4px;	-moz-box-shadow:inset 0 0 5px #ccc;	-webkit-box-shadow:inset 0 0 5px #ccc;	box-shadow:inset 0 0 5px #ccc;	}	
+	
+	.field:hover{    border-color: #B7B7B7;}
+ 
+	.field:focus{    border-color: #32A6DC;    outline: none; /* Remove Chrome's outline */}
+
+	.imglogin {	float:left;	margin-top:-10px;	margin-right:10px}
+
+	.getEmail{	color:#32A6DC;}
+
+	.dropdown {	border: 1px solid rgba(0, 0, 0, 0.27);	width: 261px;	height: auto;	padding: 3px;}
+
+	.dropdowneffort {	border: 1px solid rgba(0, 0, 0, 0.27);	width: 184px;	margin-left:10px;	height: auto;	padding: 3px;}
+
+.button {
+	border:1px solid #999999; 
+    -webkit-border-radius: 3px; 
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-family: "Raleway", "Roboto", Lucida Grande, sans-serif;
+    font-weight:600;
+    font-size: 14px;
+    padding: 4px 20px;
+    text-align: center; 
+    text-decoration: none; 
+    color: #444444;
+    background: rgba(255,255,255,1);
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(246,246,246,1)), color-stop(100%, rgba(237,237,237,1)));
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0 );
+}
+
+.button112 {
+	border:1px solid #999999; 
+    -webkit-border-radius: 3px; 
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-family: "Raleway", "Roboto", Lucida Grande, sans-serif;
+    font-size: 11px;
+    padding: 4px 20px;
+    text-shadow: 0 2px 0 #FFFFFF;
+    text-align: center; 
+    text-decoration: none; 
+    color: #444444;
+    background: url("/resources/images/Common-Icons.png") repeat-x scroll 0 -2549px transparent;
+    margin-left:42px;
+}
+
+	.button:hover {	opacity:0.8;	filter:alpha(opacity=80); /* For IE8 and earlier */}
+
+	.searchBtn {	padding-left: 10px;	padding-right: 10px;background: #EEEEEE; cursor:pointer;	font-family:Segoe UI, arial;}
+
+	.fileimg {	max-height:100px;	max-width:100px;	border-radius: 5px;	padding:1px;   	border:1px solid #ccc;}
+
+	.fileequimg {	background-color:#F1F0F5;	border:1px solid #ccc;	border-radius: 5px;	padding:1px;	max-height:300px;	max-width:300px;}
+
+/* // base */
+
+/* menu  */
+
+	.zinglogo{	width:156px;	height:81px;	float:left;	padding:10px;}
+
+	#procontainer_blue {position:relative;max-width: 1200px;margin: 0 auto;position: relative;text-align: center;border-radius:0 0 7px 7px;background:#fff;}
+
+	#pronav_blue {    background: #FFFFFF;    color: #EF4723;    font-size: 14px;    font-weight: bold;    height: 65px;    position: relative;    width: 97%;    margin:auto auto 10px auto;    /* -webkit-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);-moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75);box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.75); */}
+
+	#pronav_blue ul{margin:0;padding:0;list-style-type:none;width:/*auto*/420px;float:right;margin-top:41px;}
+
+	#pronav_blue ul li { display: block;    float: left;   /* height: 36px;    line-height: 36px; */   margin: 0 1px;   /* padding-top: 41px;*/    padding-right:20px;    color:#909090;    font-weight:bold;    text-align:left;    font-size:13px;    text-transform:uppercase;    font-family:"roboto", arial;}
+
+	#pronav_blue ul li a {display:block;float:left;color:#909090;text-decoration:none;height:32px;/*width:135px;*/}
+
+	#pronav_blue ul li a span {padding:8px 5px 0 0;height:21px;float:left;font-weight: bold;font-family: "Raleway", "Roboto", Lucida Grande, sans-serif;font-size:16px;text-transform:uppercase;}
+
+	#pronav_blue ul li a:hover {color:#000;}
+
+	#pronav_blue ul li a:hover span {display:block;width:auto;cursor:pointer;/*text-decoration: underline;*/ border-bottom: 3px solid #ece289;   /* font-weight: bold;*/}
+
+	#pronav_blue ul li a.current,#pronav ul li a.current:hover {color:#fff;background:#000000;line-height:275%;}
+
+	#pronav_blue ul li a.current span {display:block;padding:0px 10px 0 0;width:auto;background:#000000;height:18px;}
+
+/* // menu */
+
+/* map  */
+
+	.map{	margin: 0 auto;}
+
+	.mapview {	width:1012px;	height:300px;	margin-top: -5px;	border-bottom: 1px solid #CCCCCC;	border-left: 1px solid #CCCCCC;	border-right: 1px solid #CCCCCC;}
+
+	.maptab {	margin-left:21px;	width: 1050px;}
+
+	#mapPopup {	min-width:240px;	height:90px;	background:#F7F7F7;	border: 1px solid #BBBBBB;	border-radius: 3px;	padding-left: 2px;}
+
+	#mapPopupcontent {	float: left;	text-align:left;	font-size:12px;	border-bottom: 1px solid #F1F0F5;	min-width: 240px;}
+
+	#mapImg {	width:40px;	height:40px;	float:left;}
+
+	#infoContent {	white-space: nowrap;	font-size:11px;}
+
+/* // map */
+
+/* grid */
+
+	.topbar {	background: url("/resources/images/Common-Icons.png") repeat-x scroll 0 -2605px #CBCBCB;	border-right: 1px solid #CCCCCC;	border-left: 1px solid #CCCCCC;	border-top: 1px solid #CCCCCC;	border-bottom: 1px solid #CCCCCC;	color: #FFFFFF;	font-size: 14px;	height: 38px;	line-height: 35px;	margin-top: 3px;	padding-left: 10px;	text-align: left;	z-index: 20;	border-radius: 3px 3px 0px 0px;	width: 1118px;}
+
+	.workordergrid {	margin-top: -74px;	min-width: 1000px;	border-left: 1px solid #CCCCCC;    border-right: 1px solid #CCCCCC;  }
+	.workordergrid2 {	margin-top: -74px;	min-width: 798px;	border-left: 1px solid #CCCCCC;    border-right: 1px solid #CCCCCC;  }
+	
+
+	.shwworkordergrid {	margin-top:74px;}
+
+/* // grid */
+
+
+/* error */
+
+	.errorblock {    color: #C85305;       margin-top: 12px;    overflow: hidden;    word-wrap: break-word;	float: left;}
+
+	.filtererror {	color: #C85305;       margin-top: 12px;    margin-left: 10px;    overflow: hidden;    word-wrap: break-word;}
+
+	.locerror {	color: #C85305;       margin-top: 12px;    overflow: hidden;    word-wrap: break-word;    font-size: 11px;}
+
+	.small {	font-size: 10px;	color: #999999;}
+
+	.hideall {display: none;}
+
+	.error {    color: #C85305;       overflow: hidden;    font-size: 11px;    font-family: Segoe UI, arial;}
+
+	.fieldset{border-radius: 5px;padding: 5px; /*Just to prevent the content from being to close to the corner*/}
+
+/* // error */
+
+	.txtinput {    border: 1px solid #CCCCCC;    float: left;    font-size: 14px;    line-height: 1em;    padding: 4px;    width: 250px;    margin-bottom: 20px;    margin-right:10px;}
+
+	.txtinputfnname {    border: 1px solid #CCCCCC;    float: left;    font-size: 14px;    line-height: 1em;    padding: 4px;    width: 115px;    margin-bottom: 25px;    margin-right:10px;}
+
+	.lblinput {    float: left;    font-size: 14px;    text-align: left;    width: 140px;    /* font-family:roboto; */}
+
+	.lblinputactiontaken {    float: left;    font-size: 14px;    text-align: left;    width: 123px;    /* font-family:roboto; */}
+
+	.lblinputwrkorder {    float: left;    font-size: 14px;    text-align: left;    width: 120px;    margin-bottom: 20px;    margin-left:300px;}
+
+	.lblinputwrkordertop {    float: left;    font-size: 14px;    text-align: left;    width: 180px;    margin-left:300px;    margin-top:6px;}
+
+	.lblinputchk {    float: left;    font-size: 14px;    text-align: left;    width: 120px;    margin-bottom: 20px;}
+
+	.content {    overflow:hidden;}
+
+	.left {    float: left;    padding-left: 27px;    width: 40%;}
+
+	.right {    float: right;    width: 40%;}
+
+	.WOright {    float: right;    width: 50%;}
+	
+	.WOreport {    float: right;    width: 38%;}
+
+	.rightbx {    float: right;    width: 36.9%;}
+	
+	.right-search {    float: right;    width: 40%;    text-align:right;}
+
+	.txtinputsmall {    border: 1px solid #CCCCCC;    float: left;    font-size: 14px;    line-height: 1em;    padding: 4px;    width: 100px;    margin-bottom: 20px;    margin-right:10px;}
+
+	.txtinputsmall1 {    border: 1px solid #CCCCCC;    float: left;    font-size: 14px;    line-height: 1em;    padding: 4px;    width: 251px;    margin-bottom: 20px;    margin-right:10px;}
+
+	.txtinputsmallstreet {    border: 1px solid #CCCCCC;    float: left;   font-size: 14px;    line-height: 1em;    padding: 4px;    width: 131px;    margin-bottom: 20px;    margin-right:10px;}
+
+	.lblinputsmall {    float: left;    font-size: 14px;    text-align: left;    width: 30px;    margin-bottom: 20px;}
+
+	.drpinput {    border: 1px solid #CCCCCC;    float: left;    font-size: 14px;    line-height: 1em;    padding: 4px;    width: 260px;    margin-bottom: 20px;    margin-right:10px;}
+
+	.drpinputaction {    border: 1px solid #CCCCCC;    float: left;    font-size: 14px;    line-height: 1em;    padding: 4px;    width: 154px;    margin-bottom: 20px;    margin-right:10px;}
+
+	.drpinputstatus {    border: 1px solid #CCCCCC;    float: left;    font-size: 14px;    line-height: 1em;    padding: 4px;    width: 154px;    margin-bottom: 20px;    margin-right:10px;    margin-left:22px;}
+
+	.drpinput1 {    border: 1px solid #CCCCCC;    float: left;    font-size: 14px;    line-height: 1em;    padding: 4px;    width: 90px;    margin-bottom: 20px;    margin-right:10px;}
+
+	.drpinput1street {    border: 1px solid #CCCCCC;    float: left;    font-size: 14px;    line-height: 1em;    padding: 3px;    width: 138px;    margin-bottom: 20px;    margin-right:10px;}
+
+	.WOdrpinput1street {    border: 1px solid #CCCCCC;    float: left;    font-size: 14px;    line-height: 1em;    padding: 3px;    width: 234px;    margin-bottom: 20px;    margin-right:10px;}
+
+	.lblinput2 {    float: left;    font-size: 14px;    text-align: left;    width: 140px;    margin-bottom: 19px;    margin-left:28px;    }
+
+	.lblinput22 {    float: left;    font-size: 14px;    text-align: left;    width: 80px;    margin-bottom: 20px;    margin-left:18px;    }
+	
+	.lblinputassignEquip {    float: left;    font-size: 14px;    text-align: left;    width: 100px;    margin-bottom: 20px;    margin-left:18px;}
+	
+	.drpassignEquip {    border: 1px solid #CCCCCC;    float: left;    font-size: 14px;    line-height: 1em;	width: 271px;    margin-bottom: 20px;    margin-right:10px;}
+
+	.lblinput3 {    float: left;    font-size: 14px;    text-align: left;    width: 160px;    margin-bottom: 20px;    margin-left:113px;    }
+
+	.txtrequestinfoinputsmall {	border: 1px solid #CCCCCC;    float: left;    font-size: 14px;    line-height: 1em;    padding: 4px;    width: 80px;    margin-bottom: 20px;    margin-right:10px;}
+
+	.lblinput3 {    float: left;    font-size: 14px;    text-align: left;    width: 70px;    margin-bottom: 20px;   }
+
+	.listinput {    border: 1px solid #CCCCCC;    float: left;    font-size: 14px;    line-height: 1em;    padding: 4px;    width: 260px;    margin-bottom: 20px;    margin-left:60px;}
+
+	.listinput12 {    border: 1px solid #CCCCCC;    float: left;    font-size: 14px;    line-height: 1em;    padding: 4px;    width: 160px;    margin-bottom: 20px;    margin-left:14px;   }
+
+	.listinput12assign {    border: 1px solid #CCCCCC;    float: left;    font-size: 14px;    line-height: 1em;    padding: 4px;    width: 160px;    margin-bottom: 20px;    margin-left:14px;    display:none;}
+
+	.listinput12labor {    border: 1px solid #CCCCCC;    float: left;    font-size: 14px;    line-height: 1em;    padding: 4px;    width: 260px;    margin-bottom: 20px;    margin-left:91px;}
+
+	.setbutton{	border: 1px solid #CCCCCC;    padding: 4px;    width: 100px;    margin-bottom: 20px;    margin-left:65px;    margin-top:30px;}
+
+	.setbuttonimg{	border: 1px solid #CCCCCC;    padding: 4px;    width: 100px;    margin-bottom: 20px;    margin-left:80px;    margin-top:80px;}
+
+	.listinput1 {    border: 1px solid #CCCCCC;    font-size: 14px;    line-height: 1em;    width: 260px;    margin-bottom: 20px;    margin-left:121px;}
+
+	.txtinputcomments {    border: 1px solid #CCCCCC;    float: left;    font-size: 14px;    line-height: 1em;    padding: 4px;    width: 143px;    margin-bottom: 20px;    margin-right:10px;}
+
+	.txtinputcomments1 {    border: 1px solid #CCCCCC;    float: left;    font-size: 14px;    line-height: 1em;    padding: 4px;    width: 100px;    margin-bottom: 20px;    margin-right:10px;}
+
+	.txtinputweathercomments {    border: 1px solid #CCCCCC;    float: left;    font-size: 14px;    line-height: 1em;    padding: 4px;    width: 485px;    margin-bottom: 20px;    margin-right:10px;}
+
+	.buttonrounded {	border:1px solid #999999;    -webkit-border-radius: 3px;    -moz-border-radius: 3px;    border-radius: 6px;    font-family: "Raleway", "Roboto", Lucida Grande, sans-serif;    font-size: 11px;    padding: 4px 20px;    text-shadow: 0 2px 0 #FFFFFF;    text-align: center;    text-decoration: none;    color: #444444;    background: url("/resources/images/Common-Icons.png") repeat-x scroll 0 -2549px transparent;    margin-left:308px;}
+
+	.buttonroundedassignment {	border:1px solid #999999; font-family: "Roboto", Lucida Grande, sans-serif;    font-weight:600;    font-size: 13px;    padding: 4px 20px;    text-align: center;    text-decoration: none;    color: #000;    background: url("/resources/images/Common-Icons.png") repeat-x scroll 0 -2549px transparent;    margin-left:505px;}
+
+	.buttonrounded1 {	border:1px solid #999999;    font-family: "Roboto", Lucida Grande, sans-serif;    font-size: 13px;    font-weight:600;    padding: 4px 20px;    text-align: center;    text-decoration: none;    color: #000;    background: url("/resources/images/Common-Icons.png") repeat-x scroll 0 -2549px transparent;    margin-left:5px;}
+	
+	.lblinputsmall1 {    float: left;    font-size: 14px;    text-align: left;    width: 70px;    margin-bottom: 20px;}
+
+	.dropdownIssue {	border: 1px solid rgba(0, 0, 0, 0.27);	width: 111px;	height: auto;	padding: 3px;}
+
+	.WOdropdownIssue {	border: 1px solid rgba(0, 0, 0, 0.27);	width: 162px;	height: auto;	padding: 3px;}
+
+	.dropdownIssue1 {	border: 1px solid rgba(0, 0, 0, 0.27);	width: 132px;	height: auto;	padding: 3px;	margin-left:10px;}
+
+	.WOdropdownIssue1 {	border: 1px solid rgba(0, 0, 0, 0.27);	width: 179px;	height: auto;	padding: 3px;	margin-left:10px;}
+
+	.button112search {	border:1px solid #999999;    -webkit-border-radius: 3px;    -moz-border-radius: 3px;    border-radius: 3px;    font-family: "Raleway", "Roboto", Lucida Grande, sans-serif;    font-size: 14px;    font-weight:600;    padding: 4px 20px;    text-align: center;    text-decoration: none;   color: #444444;    background: url("/resources/images/Common-Icons.png") repeat-x scroll 0 -2549px transparent;    margin-left:0px;}
+
+	.PopUpWindoweffort {position:absolute;_position:absolute;height:540px;width:1098px;background:#FFFFFF;left: 111px;top: 98px;z-index:100;margin-left: 15px;border:2px solid #999999;padding:7px;font-size:15px;-moz-box-shadow: 0 0 5px #999999;-webkit-box-shadow: 0 0 5px #999999;}
+
+	.errorcolor {    border-color:red;    border-width:1px solid;}
+
+	.PopUpWindowlabor {position:absolute;_position:absolute;height:650px;width:1098px;background:#FFFFFF;left: 111px;top: 98px;z-index:100;margin-left: 15px;border:2px solid #999999;padding:7px;font-size:15px;-moz-box-shadow: 0 0 5px #999999;-webkit-box-shadow: 0 0 5px #999999;} 
+
+	.clr{		color:#ffffff;}
+	
+	.clrdiv{	clear:both;	width:100px;	height:5px;}
+	
+	.clrdiv2{	clear:both;	width:100%;	height:85px;}
+
+	.lblinput2action {    float: left;    font-size: 14px;    text-align: left;    width: 118px;    margin-bottom: 20px;    margin-left:37px;    }
+	
+	.mainDiv{        width:900px;        min-height:333px;        margin:auto;        left:0px;        right:0px;        /* border:1px solid #ccc; */       }
+	.mainDiv1{        width:900px;        min-height:47px;        margin:auto;        left:0px;        right:0px;        /* border:1px solid #ccc; */       }
+    .headleft{        width:410px;    margin-right:29px;    height:32px;        padding:10px;        float:left;       /*  border:1px solid ; */        }
+        
+    .primary{        padding-left:200px;        float:left;        font-style:italic;        font-weight:300px;         }
+         
+    .second{        font-style:italic;        font-weight:300px;         }
+         
+    .creCanBtn{         width:1010px;/*100%;*/         clear:both;         height:45px;         line-height:45px;         padding-top:35px;        float:left;         }
+    .creCanBtn2{         width:450px;/*100%;*/         clear:both;         height:45px;         line-height:45px;         padding-top:15px;        float:right;         }
+    .creCanBtn2 p{         margin:0px;         float:right;         width:105px;                  }
+    
+     .creOppCanBtn{         width:1030px;/*100%;*/         clear:both;         height:45px;         line-height:45px;         padding-top:167px;        float:right;         }
+      .creOppEditCanBtn{         width:1030px;/*100%;*/         clear:both;         height:45px;         line-height:45px;         padding-top:214px;        float:right;         }
+         
+    .creCanBtn p{         margin:0px;         float:right;         width:120px;                  }
+    .creOppCanBtn p{         margin:0px;         float:right;         width:120px;                  }
+    .creOppEditCanBtn p{         margin:0 10px 0 10px;         float:right;         width:120px;                  }
+
+    .headleft p{        margin:0px;        }
+
+    .headright{        width:410px;        height:32px;        padding:10px;        float:right;                }
+        .headrightExp{        width:410px;        height:32px;        padding-top:1px;        float:right;  padding-right: 10px;padding-bottom:18px;               }
+
+    .headright p{        margin:0px;        }
+
+    .contlbl{        float:left;        width:205;        height:20px;       line-height:20px;        font-size:12px;       font-weight:bold;       font-family:"roboto", arial;        }
+
+    .continput{        float:right;        width:205px;        height:20px;        line-height:20px;        font-size:14px;        font-family:"roboto",arial;        }
+    .contchk{        float:left;        width:205;        height:20px;        line-height:20px;        font-size:14px;        font-family:"roboto",arial;        }
+    .txtspace{ width:200px; text-align:left;}
+      .continput1 select{        border: 1px solid #CCCCCC;    font-size: 12px;    line-height: 1.5em;    padding: 4px;    width: 103px;        }  
+    .continput select{        border: 1px solid #CCCCCC;    font-size: 12px;    line-height: 1.5em;    padding: 4px;    width: 209px;        }
+    .mtop{margin-top:18px !important;}
+    
+      .cnD{height:20px; clear:both; width:900px; margin:auto; border-bottom:1px solid #d4d4d4;}
+    .cnD p{ font-size:18px; }
+    
+    .spacebtn{height:50px; clear:both; width:900px; margin:auto;}
+    
+    .spacebtn p{ font-size:18px; }
+        
+    .continput input{        min-width:200px;        }
+    .contCheck{        min-width:15px !important;        }
+        
+    .continput textarea{        	height:235px;        	width:670px;        	resize:none;        }
+     
+    .updtCan{       width:250px;        float:right;        height:50px;       clear:both;          }
+        
+    .pageimg{        float:left;        min-width:50px;        height:50px;        margin-right:10px;        }
+    
+    .pageimg img{
+    	width:50px;
+    	height:50px;
+    	text-align:center; line-height:75px;
+    }
+        
+    .pageimg ul{        list-style:none;        }
+        
+    .pageimg ul li{        list-style:none;        margin:0;        }
+        
+    .updtCan input{        float:left;        margin-right:5px;        }
+        
+    .divd{        clear:both; width:400px;height:33px;        }
+        
+    .errorMsg{        clear:both; width:159px;height:15px;        font-size:11px;        color:red;        padding-top:5px; width:205px; float:right;       }
+        
+    .error1{        float:right;        width:205;        height:20px;        line-height:20px;        font-size:11px;        font-family:arial;        padding: 5px 0 5px 5px;        font-weight:bold;      }
+    
+    .error2{        float:right;        width:205;        height:20px;        line-height:20px;        font-size:11px;        font-family:arial;        padding: 0px 0 5px 5px;        font-weight:bold;        } 
+        
+    .uploadDlg{ border:1px solid #D2D2D2;width: 500px; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.36);        height: 165px;        margin:auto;        background:#fff;        padding:20px;        }
+        
+    .filterGenerateButton5 {	    background: none repeat scroll 0 0 #83C97E;	    border: 1px solid #83C97E;	    border-radius: 5px;	    cursor: pointer;	    font: bold 14px Segoe UI, arial;	    height: 25px;	    min-width: 76px;	    padding-bottom: 3px;	    text-align: center;	    text-transform: uppercase;	    width: 150px;	}
+	
+ 	/*.Removebutton1 {	    cursor: pointer;	    float: right;	    font: 12px "roboto", arial;	    height: 21px;	    padding-top: 3px;	    text-align: right;	    width: 100%;	}*/
+ 	.Removebutton1 {
+    cursor: pointer;
+    float: left;
+    font: 12px "roboto",arial;
+    height: 21px;
+    padding-top: 3px;
+    text-align: right;
+    width: 15%;
+}
+	
+	.Removebutton1 p{	float:right;	line-height:21px;	margin:0px 1px;	font-size:12px !important;	} 
+	
+	.greenbtn1{	float:right; width:100%; text-align:center;}
+}
+
+/* Mine code start*/
+	.chart{background: url("/resources/images/loading.png") no-repeat scroll center center #FFFFFF;box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.75) inset;
+    height: 415px;    margin: auto;    padding-top: 20px;    text-align: center;    width: 100%;}
+
+	.estUl { clear: both;font-size: 9px; height: 42px;margin: auto auto 15px;    width: 90%;}
+	
+	.btnbg {height:36px;margin:auto; width: 1075px;}
+
+	.btntre {border-right: 1px solid #F3F3F3;color: #909090;float: left;font-weight: bold;height:36px;line-height: 36px; margin-right: 3px;text-align: center;    text-decoration: none;    transition: all 0.7s ease 0s;    width: 126px;    background:#CBCBCB;}
+	
+	.filterhome{float: left; list-style: none outside none;  margin-left: 0;  margin-right: 5px;    margin-top: 5px; text-align: right;width: 263px}
+    
+	.divTable{display:table;width:799px;background:#eee;border:1px solid  #CCC;border-spacing:2px;font-family:"roboto",arial;}
+
+	.divRow{display:table-row;font-family:Segoe UI, arial;}
+
+	.divCell {display:table-column; font-size:14px; width:120px;background:#fff; padding-left: 5px;float:left; height:25px; word-wrap: break-word; position:justify;overflow-x: auto; border:2px solid #ccc;    }
+    
+    .divtitleCell{ float:left;display:table-column; width:121px;height:25px;overflow:hidden;font-weight:bold;color:#555;padding-left: 3px;font-family:"roboto",arial; font-size:14px; text-align:center;   }
+    
+    
+    .oppWid{width:100%; display:inline-block; height:266px;}
+    
+    .fieldtitlevalue{font-size: 14px; font-weight: bold; float:right; font-family:Segoe UI, arial; width:374px !important; background:#fff !important;}
+    
+    .fieldtitlevalue p {float:left; width:100px !important; background:#fff !important;}
+     
+    .textemailtasks{width:794px;padding:5px;color:#555; text-align:right;}
+    
+    .alltasks{width:630px;float:left;Font-size:14px;Font-weight:bold; padding: 5px;font-family:Segoe UI, arial;}
+    
+    .maptable{width:260px;height:237px; float:left; background:#E4E4E4; margin-bottom:20px; padding:20px; }
+    
+    .gridtable{width:798px;height:259px;background:#fff; padding: 8px;border:1px solid #ccc; float:left; margin-left:10px; }
+    
+    .searchright{width:400px;float:right;}
+    
+    .searchleadhright{width:640px;float:right;}
+    
+    .chngpwdlbl{font-family:Segoe UI, arial;font-size:12px;font-weight:bold;height: 20px;line-height: 25px; font-family: "roboto",arial;color:#000;}
+    
+    #divAllTasks{overflow-y:scroll;height:229px;}
+    
+    .active{color:#000 !important;}
+    
+    .head2{    width:100%; float:left;    }
+    
+    .head2 p {    	width:290px;    	background:#d3d3d3;    	height:25px;    	margin: 0 10px 10px 0;    	float:left;    	font-size:16px;    	font-weight:bold;    	padding:5px;    }
+    
+    #uploadingText{
+     width:100%;
+     text-align:center;
+     clear:both;
+     font-size:12px;
+    }
+    
+    .uptxtHt{
+    height:21px;
+    clear:both;
+    width:100%;
+    }
+    
+		.cancelbutton {
+	   
+	    color: #000;
+	    cursor: pointer;
+	    display: block;
+	    font-family: "roboto", arial;
+	    font-weight:bold;
+	    font-size: 15px;
+	    outline: 0 none;
+	    overflow: visible;
+	    height:33px;
+	    min-width:100px;
+	    line-height:33px;
+	  background: rgba(163,163,163,1);
+	background: -moz-linear-gradient(top, rgba(163,163,163,1) 0%, rgba(94,94,94,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(163,163,163,1)), color-stop(100%, rgba(94,94,94,1)));
+	background: -webkit-linear-gradient(top, rgba(163,163,163,1) 0%, rgba(94,94,94,1) 100%);
+	background: -o-linear-gradient(top, rgba(163,163,163,1) 0%, rgba(94,94,94,1) 100%);
+	background: -ms-linear-gradient(top, rgba(163,163,163,1) 0%, rgba(94,94,94,1) 100%);
+	background: linear-gradient(to bottom, rgba(163,163,163,1) 0%, rgba(94,94,94,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a3a3a3', endColorstr='#5e5e5e', GradientType=0 );
+		border:1px solid #ccc;
+		
+		 border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border: 0px solid #000000;
+	}
+
+		.cancelbutton:hover {
+	   
+	    color: #d3d3d3;
+	    cursor: pointer;
+	    display: block;
+	    font-family: "roboto", arial;
+	    font-weight:bold;
+	    font-size: 15px;
+	    outline: 0 none;
+	    overflow: visible;
+	    height:33px;
+	    min-width:100px;
+	    line-height:33px;
+		border:1px solid #ccc;
+		background: rgba(94,94,94,1);
+	background: -moz-linear-gradient(top, rgba(94,94,94,1) 0%, rgba(163,163,163,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(94,94,94,1)), color-stop(100%, rgba(163,163,163,1)));
+	background: -webkit-linear-gradient(top, rgba(94,94,94,1) 0%, rgba(163,163,163,1) 100%);
+	background: -o-linear-gradient(top, rgba(94,94,94,1) 0%, rgba(163,163,163,1) 100%);
+	background: -ms-linear-gradient(top, rgba(94,94,94,1) 0%, rgba(163,163,163,1) 100%);
+	background: linear-gradient(to bottom, rgba(94,94,94,1) 0%, rgba(163,163,163,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5e5e5e', endColorstr='#a3a3a3', GradientType=0 );
+		 border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border: 0px solid #000000;
+	}
+
+		.signupbutton {
+	   background: rgba(169,3,41,1);
+	background: -moz-linear-gradient(top, rgba(169,3,41,1) 0%, rgba(109,0,25,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(169,3,41,1)), color-stop(100%, rgba(109,0,25,1)));
+	background: -webkit-linear-gradient(top, rgba(169,3,41,1) 0%, rgba(109,0,25,1) 100%);
+	background: -o-linear-gradient(top, rgba(169,3,41,1) 0%, rgba(109,0,25,1) 100%);
+	background: -ms-linear-gradient(top, rgba(169,3,41,1) 0%, rgba(109,0,25,1) 100%);
+	background: linear-gradient(to bottom, rgba(169,3,41,1) 0%, rgba(109,0,25,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=0 );
+	    color: #fff;
+	    cursor: pointer;
+	    display: block;
+	    font-family: "roboto", arial;
+	    font-size: 15px;
+	    font-weight:bold;
+	    outline: 0 none;
+	    overflow: visible;
+	    border:none;
+	    height:33px;
+	    line-height:33px;
+	    min-width:100px;
+	    border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border: 0px solid #000000;
+	}
+
+		.signupbutton:hover {
+	   background: rgba(109,0,25,1);
+	background: -moz-linear-gradient(top, rgba(109,0,25,1) 0%, rgba(169,3,41,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(109,0,25,1)), color-stop(100%, rgba(169,3,41,1)));
+	background: -webkit-linear-gradient(top, rgba(109,0,25,1) 0%, rgba(169,3,41,1) 100%);
+	background: -o-linear-gradient(top, rgba(109,0,25,1) 0%, rgba(169,3,41,1) 100%);
+	background: -ms-linear-gradient(top, rgba(109,0,25,1) 0%, rgba(169,3,41,1) 100%);
+	background: linear-gradient(to bottom, rgba(109,0,25,1) 0%, rgba(169,3,41,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6d0019', endColorstr='#a90329', GradientType=0 );
+	    color: #999;
+	    cursor: pointer;
+	    display: block;
+	    font-family: "roboto", arial;
+	    font-size: 15px;
+	    font-weight:bold;
+	    outline: 0 none;
+	    overflow: visible;
+	    border:none;
+	    height:33px;
+	    line-height:33px;
+	    min-width:100px;
+	    border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border: 0px solid #000000;
+	}
+	.filebrowse{	}
+
+	.fileupCom{
+		width:600px;height:auto; clear:both; padding:20px; margin-top: 132px; border:1px solid #ccc; margin-left: 131px;
+		background: rgba(237,237,237,1);
+	background: -moz-linear-gradient(top, rgba(237,237,237,1) 0%, rgba(255,255,255,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(237,237,237,1)), color-stop(100%, rgba(255,255,255,1)));
+	background: -webkit-linear-gradient(top, rgba(237,237,237,1) 0%, rgba(255,255,255,1) 100%);
+	background: -o-linear-gradient(top, rgba(237,237,237,1) 0%, rgba(255,255,255,1) 100%);
+	background: -ms-linear-gradient(top, rgba(237,237,237,1) 0%, rgba(255,255,255,1) 100%);
+	background: linear-gradient(to bottom, rgba(237,237,237,1) 0%, rgba(255,255,255,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#ffffff', GradientType=0 );
+	display:table;
+		
+	}
+	
+	.ex12 {width:1100px; border:solid 1px #ccc; height:180px; padding-top:30px; margin:10px 0 10px 0;}
+	.parChild {width:1100px; border:solid 1px #ccc; height:100px; padding-top:30px; margin:10px 0 10px 0;}
+	
+	.parLft {float:left; width:450px; height:150px;}
+	
+	.parRgt {float:right; width:450px; height:150px;} 
+	
+	.fileupCom p{	text-align:center;	font-size:16px;	font-weight:bold;	margin:0 0 10px 0;}
+
+.fileNote{text-align:center;	font-size:10px;		margin:0 0 10px 0;}
+	.viewfileup{float:right;width:200px;color: #0457FF; font-family: "roboto",arial;  font-size: 13px;    font-weight: bold;}
+	
+	.viewfileup a {float:right;width:200px;color: #0457FF;text-decoration:none;font-family: "roboto",arial;  font-size: 13px;    font-weight: bold;}
+	
+/* 	.viewfileupnew  {float:right;width:600px;color: #0457FF;text-decoration:none;font-family: "roboto",arial;  font-size: 13px;    font-weight: bold;}
+	
+	.viewfileupnew a {float:right;width:600px;color: #0457FF;text-decoration:none;font-family: "roboto",arial;  font-size: 13px;    font-weight: bold;}*/
+	
+	.viewfileupnew {
+    color: #0457FF;
+    float: left;
+    font-family: "roboto",arial;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+    width: 500px;
+}
+
+
+.viewfileupnew a {
+    color: #0457FF;
+    float: right;
+    font-family: "roboto",arial;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+    width: 500px;
+} 
+
+	#upladedfileedit{float:right;width:600px;color: #0457FF;}
+
+	.creCanBtn1 {float: right;width: 150px;}
+	
+	.attchfile{float: right;    padding-right: 0;    padding-top: 25px;    width: 1px;}
+
+ 	.creCanBtncreate{ width:700px; clear:both; float:right;}
+ 
+ 	.infodashboard {  float: left;    height: 61px;    padding: 10px;    width: 470px;}
+ 	.infodashboard2 {  float: left;    height: 61px;    padding: 10px;    width: 1100px;}
+	
+	.titledash{color: #2D3D59;    display: inline-block;    font-size: 20px;    font-weight: 600;    margin-bottom: 10px;    margin-top: 25px;}
+
+	.subtitledash{color: #2D3D59;display:inline-block;font-size:20px;font-weight: 600; margin-bottom: 10px; margin-top: 25px;}   
+    
+    .userleft{ float: left;height: 48px;padding: 10px;width: 410px;}
+    
+    .userlbl{  float: left;    font-family: "roboto",arial;    font-size: 12px;    font-weight: bold;    height: 20px;    line-height: 20px;}
+    
+    .userinput{ float: right;    font-family: arial;    font-size: 14px;    height: 20px;    line-height: 20px;}
+    
+    .divTableuser{ display:table; width:650px; border-spacing:5px;float:left;}
+
+    .divRowuser{display:table-row; width:auto;}
+    
+    .divCelluser{float:left;display:table-column;width:325px;height:35px;font-family: "roboto",arial;font-size: 12px;}
+    
+    .divCelluserlbl {float:left;display:table-column;width:150px/*325px*/;height:35px;font-family: "roboto",arial;font-size: 15px;font-weight: bold;}
+    
+    .changepwddiv{float:left;width:760px;}
+    
+    .changepwdlbl{padding-top:12px;}
+    
+    .changepwdcontlbl {    float: left;    font-family: "roboto",arial;    font-size: 12px;    font-weight: bold;    height: 20px;    line-height: 20px;color:#000;}
+    
+    .changepwdinputac {    border: 1px solid #CCCCCC;    float: right;    font-family: "roboto",arial;    font-size: 12px;    line-height: 1em;    padding: 4px;    width: 200px;}
+    
+    .changepwdheadleft {    float: left;    height: 48px;    padding: 10px;    width: 375px;}
+    
+    .successbtnnew{width:365px;float:right;}
+    
+    .successP{text-align:center;}
+    .addData
+    {
+    width:90px;
+    height:20px;
+    line-height:20px;
+    cursor:pointer;
+    text-align:center;
+    float:right;
+    
+background: rgba(255,255,255,1);
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(237,237,237,1)));
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%);
+background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%);
+background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%);
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0 );
+border:1px solid #ccc;
+margin-top:2px;
+    
+    }
+    
+    .imgAttach
+    {
+    height:25px;
+    width:25px;
+    }
+    
+#newStep1Lead{
+	width:100%;
+	margin-top:0px;
+}
+.stepsNew{ 
+	width:615px;
+	max-height:43px;
+	overflow:hidden;	
+	clear:both;
+	margin:20px 0 20px 0;
+}
+
+.stepsNew ul {
+	list-style:none;
+	display:inline-block;
+	
+}
+
+.stepsNew ul li {
+	list-style:none;
+	display:inline-block;
+	width:200px;
+	height:43px;
+	overflow:hidden;
+	cursor:pointer;
+	margin:0px;
+	
+}
+
+.stepsNew .step1 {
+	width:200px;
+	height:43px;
+	overflow:hidden;
+	background:url("/resources/images/steps.png") no-repeat;
+	background-position: 0px 0px;
+}
+
+.stepsNew .step1:hover {
+	width:200px;
+	height:43px;
+	overflow:hidden;
+	background:url("/resources/images/steps.png") no-repeat;
+	background-position: 0px -44px;
+}
+
+.stepsNew .step2 {
+	width:200px;
+	height:43px;
+	overflow:hidden;
+	background:url("/resources/images/steps.png") no-repeat;
+	background-position: -198px -44px;
+}
+
+.stepsNew .step2:hover {
+	width:200px;
+	height:43px;
+	overflow:hidden;
+	background:url("/resources/images/steps.png") no-repeat;
+	background-position: -198px 0px;
+}
+
+.stepsNew .step3 {
+	width:200px;
+	height:43px;
+	overflow:hidden;
+	background:url("/resources/images/steps.png") no-repeat;
+	background-position: -396px -44px;
+}
+
+.stepsNew .step3:hover {
+	width:200px;
+	height:43px;
+	overflow:hidden;
+	background:url("/resources/images/steps.png") no-repeat;
+	background-position: -396px 0px;
+}
+
+
+/* #newStep1PrimaryDetails  {
+	border: 1px solid #666666;
+    clear: both;
+    margin: 10px 0 0 2px;
+    min-height:165px;
+    padding: 20px 0 0 124px;
+    width: 88.45%;
+}
+
+#newStep1SecondaryDetails {
+	border: 1px solid #666666;
+    clear: both;
+    margin: 10px 0 0 2px;
+    min-height: 165px;
+    padding: 20px 0 0 124px;
+    width: 88.45%;
+
+} */
+
+#viewStep1PrimaryDetails{
+	border: 1px solid #666666;
+    clear: both;
+    margin: 10px 0 0 2px;
+    min-height: 165px;
+    padding: 20px 0 0 124px;
+    width: 88.45%;
+}
+
+#viewStep1SecondaryDetails {
+	border: 1px solid #666666;
+    clear: both;
+    margin: 10px 0 0 2px;
+    min-height: 165px;
+    padding: 20px 0 0 124px;
+    width: 88.45%;
+}
+
+/* #editStep1PrimaryDetails{
+	border: 0px solid #666666;
+    clear: both;
+    margin: 10px 0 0 2px;
+    min-height: 165px;
+    padding: 20px 0 0 124px;
+    width: 88.45%;
+}
+
+#editStep1SecondaryDetails {
+	border: 0px solid #666666;
+    clear: both;
+    margin: 10px 0 0 2px;
+    min-height:165px;
+    padding: 20px 0 0 124px;
+    width: 88.45%;
+} */
+
+.changeSalesRepDetails {
+	
+    border: 1px solid #CCCCCC;
+    clear: both;
+    margin: auto;
+    min-height: 207px;
+    padding: 21px 6%;
+    width: 88%;
+}
+ .conttextarea
+ {
+ padding-left: 206px;
+ }
+ .hideall
+ {
+ display:none;
+ }
+ 
+ .headRselect{width:410px;       height:100px;        padding:10px;        float:right;        /* border:1px solid #ccc; */        }
+ .headLselect{width:410px;       height:100px;        padding:10px;        float:left;        /* border:1px solid #ccc; */        }
+   .creSettingCanBtn{         clear:both;         height:45px;         line-height:45px;         padding-top:20px;   
+     .creSettingCanBtn p{         margin:0px;         float:right;         width:120px;                  }     float:right;         }
+     .continputact textarea{        	height:235px;        	width:669px;        	resize:none;        }
+     .viewcancelbutton {
+	   
+	    color: #000;
+	    cursor: pointer;
+	    display: block;
+	    font-family: "roboto", arial;
+	    font-weight:bold;
+	    font-size: 15px;
+	    outline: 0 none;
+	    overflow: visible;
+	    height:33px;
+	    min-width:100px;
+	    line-height:33px;
+	  background: rgba(163,163,163,1);
+	background: -moz-linear-gradient(top, rgba(163,163,163,1) 0%, rgba(94,94,94,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(163,163,163,1)), color-stop(100%, rgba(94,94,94,1)));
+	background: -webkit-linear-gradient(top, rgba(163,163,163,1) 0%, rgba(94,94,94,1) 100%);
+	background: -o-linear-gradient(top, rgba(163,163,163,1) 0%, rgba(94,94,94,1) 100%);
+	background: -ms-linear-gradient(top, rgba(163,163,163,1) 0%, rgba(94,94,94,1) 100%);
+	background: linear-gradient(to bottom, rgba(163,163,163,1) 0%, rgba(94,94,94,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a3a3a3', endColorstr='#5e5e5e', GradientType=0 );
+		border:1px solid #ccc;
+		
+		 border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border: 0px solid #000000;
+	margin-top: 16px;
+	}
+	
+	    .fieldinputacphone {
+    border: 1px solid #CCCCCC;
+    font-family: "roboto",arial;
+    font-size: 12px;
+    line-height: 1em;
+    padding: 4px;
+    width: 85px;
+}
+
+#editLeadPrimaryPhone {
+    border: 1px solid #CCCCCC;
+    font-family: "roboto",arial;
+    font-size: 12px;
+    line-height: 1em;
+    padding: 4px;
+    min-width: 75px !important;
+    float:left;
+}
+#editphone input {
+    width: 95px !important;
+    float:right;
+}
+.exDiv
+{
+	width:90px;
+	float:right;
+	line-height:2;
+}
+#editex input {
+    width: 50px !important;
+    float:right;
+}
+#editLeadPrimaryPhoneExtension
+{
+    border: 1px solid #CCCCCC;
+    font-family: "roboto",arial;
+    font-size: 12px;
+    line-height: 1em;
+    padding: 4px;
+    width: 55px !important;
+    float:left;
+}
+#editex
+{
+	float:right;
+	
+}
+.exinputac
+{
+	margin-top:0px;
+}
+.exp
+{
+	 font-family: "roboto",arial;
+	 font-weight:bold;
+	 font-size: 12px;
+	margin-top:0px !important;
+	 float: left;
+	 height:0;
+	
+}
+#editphone
+{
+	width:270px;
+padding-left: 39px;
+}
+.phonediv
+{
+	float:left;
+	 width: 95px !important;
+}
+ #viewLeadPrimaryPhoneExtension
+{
+	 border: 1px solid #CCCCCC;
+    font-family: "roboto",arial;
+    font-size: 12px;
+    line-height: 1em;
+    padding: 4px;
+    min-width: 75px !important;
+    float:left;
+}
+#viewLeadPrimaryPhone {
+    border: 1px solid #CCCCCC;
+    font-family: "roboto",arial;
+    font-size: 12px;
+    line-height: 1em;
+    padding: 4px;
+    min-width: 75px !important;
+    float:left;
+}
+#newLeadPrimaryPhone
+{
+    border: 1px solid #CCCCCC;
+    font-family: "roboto",arial;
+    font-size: 12px;
+    line-height: 1em;
+    padding: 4px;
+    min-width: 75px !important;
+    float:left;
+}
+ #newLeadPrimaryPhoneEx
+{
+	 border: 1px solid #CCCCCC;
+    font-family: "roboto",arial;
+    font-size: 12px;
+    line-height: 1em;
+    padding: 4px;
+    width: 55px !important;
+    float:left;
+}
+.phoneinputac
+{
+	margin-top:0px;
+}
+.headleftS{    float: left;
+    height: 32px;
+    margin-right: 34px;
+    padding: 10px 12px 10px 5px;
+    width: 410px; }
+    #viewphone{
+       padding-left: 4px;
+    width: 270px;
+    }
+    /*------ LeadRequest -------*/
+      .creCanLRBtn{         width:1030px;/*100%;*/         clear:both;         height:45px;         line-height:45px;         padding-top:40px;        float:right;         }
+   		.updatebutton {
+	   background: rgba(169,3,41,1);
+	background: -moz-linear-gradient(top, rgba(169,3,41,1) 0%, rgba(109,0,25,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(169,3,41,1)), color-stop(100%, rgba(109,0,25,1)));
+	background: -webkit-linear-gradient(top, rgba(169,3,41,1) 0%, rgba(109,0,25,1) 100%);
+	background: -o-linear-gradient(top, rgba(169,3,41,1) 0%, rgba(109,0,25,1) 100%);
+	background: -ms-linear-gradient(top, rgba(169,3,41,1) 0%, rgba(109,0,25,1) 100%);
+	background: linear-gradient(to bottom, rgba(169,3,41,1) 0%, rgba(109,0,25,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=0 );
+	    color: #fff;
+	    cursor: pointer;	  
+	    font-family: "roboto", arial;
+	    font-size: 15px;
+	    font-weight:bold;
+	    outline: 0 none;
+	    overflow: visible;
+	    border:none;
+	    height:33px;
+	    line-height:33px;
+	    min-width:100px;
+	    border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border: 0px solid #000000;
+	}
+
+		.updatebutton:hover {
+	   background: rgba(109,0,25,1);
+	background: -moz-linear-gradient(top, rgba(109,0,25,1) 0%, rgba(169,3,41,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(109,0,25,1)), color-stop(100%, rgba(169,3,41,1)));
+	background: -webkit-linear-gradient(top, rgba(109,0,25,1) 0%, rgba(169,3,41,1) 100%);
+	background: -o-linear-gradient(top, rgba(109,0,25,1) 0%, rgba(169,3,41,1) 100%);
+	background: -ms-linear-gradient(top, rgba(109,0,25,1) 0%, rgba(169,3,41,1) 100%);
+	background: linear-gradient(to bottom, rgba(109,0,25,1) 0%, rgba(169,3,41,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6d0019', endColorstr='#a90329', GradientType=0 );
+	    color: #999;
+	    cursor: pointer;	  
+	    font-family: "roboto", arial;
+	    font-size: 15px;
+	    font-weight:bold;
+	    outline: 0 none;
+	    overflow: visible;
+	    border:none;
+	    height:33px;
+	    line-height:33px;
+	    min-width:100px;
+	    border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border: 0px solid #000000;
+	}
+	
+	/*******sub menu start*******/
+	
+	
+	/*Initialize*/
+ ul#menu ul.sub-menu {
+    padding:0;
+    margin: 0;
+    background:#f3f3f3;
+    /*background: url("/resources/images/dropdown_pane.png") no-repeat scroll 0 100% rgba(0, 0, 0, 0);*/
+   border:1px solid #ccc;
+   border-top:none;
+    box-shadow: 0 10px 10px -10px #000000;
+}
+ul#menu li, ul#menu ul.sub-menu li {
+    list-style-type: none;
+    display: inline-block;
+     line-height: 32px;/*110px;*/
+     height:35px;
+}
+/*Link Appearance*/
+ul#menu li a, ul#menu li ul.sub-menu li a {
+    text-decoration: none;
+    color: /*#909090;*/#097471;
+    padding: 5px;
+    display:inline-block;
+   /* height:15px;*/
+}
+
+/*Make the parent of sub-menu relative*/
+ul#menu li {
+    position: relative;
+}
+/*sub menu*/
+ul#menu li ul.sub-menu {
+    display:none;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 162px !important;
+    z-index:9999;
+   
+}
+ul#menu li:hover ul.sub-menu {
+    display:block;
+    color:#000;
+}
+ul.sub-menu a:hover{
+	color:#000;
+}
+	/*******sub menu end*******/
+
+.creLRBtn{         width:1030px;/*100%;*/         clear:both;         height:45px;         line-height:45px;         padding-top:217px;        float:left;         }
+
+.creLRBtn p {
+    float: right;
+    margin: 0;
+    width: 120px;
+}
+.ErrorField
+{
+	border: 1px solid #FF0000 !important;
+}
+.infodashLeadReqboard {  float: left;    height: 34px;    padding: 10px;    width: 470px;}
+.reqFld{
+border:1px solid #ff0000 !important;
+color:#ff0000 !important;
+
+}
+.leadmainDiv{        width:900px;        min-height:163px;        margin:auto;        left:0px;        right:0px;        /* border:1px solid #ccc; */       }
+
+/* #editStep1TertiaryContactDetails {
+	border: 0px solid #666666;
+    clear: both;
+    margin: 10px 0 0 2px;
+    min-height:165px;
+    padding: 20px 0 0 124px;
+    width: 77.45%;
+} */
+#editAdditionalInfo{
+	border: 0px solid #666666;
+    clear: both;
+    margin: 10px 0 0 2px;
+    height:313px;
+    padding: 0 0 0 102px;
+    width: 77.45%;
+}
+#newAdditionalInfo{
+	border: 0px solid #666666;
+    clear: both;
+    margin: 10px 0 0 2px;
+    height:313px;
+    padding: 0 0 0 102px;
+    width: 77.45%;
+}
+/************ Contact details Start*****************/
+
+/* 1. RESET
+----------------------------------------------------------------------------------------*/
+
+  
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block;}
+
+.clr             { margin:0; padding:0; clear:both;}
+
+
+
+/* 5. Body
+----------------------------------------------------------------------------------------*/
+.main-container {width:90%; max-width:1300px; margin:0 auto; padding:1% 2%; height:296px;}
+.container-para { width:94%; float:left; padding:0 0; border:1px solid #a8a7a7; background:#097471;}
+.table-head {width:12%; float:left; padding:1%; border-right:1px solid #fff; text-align:center; color:#fff;  }
+.form {width:94%; float:left; padding:0 0; border:1px solid #a8a7a7; border-top:none;}
+.table-element {width:12%; float:left; padding:1%; border-right:1px solid #a8a7a7; text-align:center;}
+.box {width:12%; float:left; padding:1%; border:1px solid #a8a7a7; text-align:center;}
+.fieldcontinput {	border:1px solid #ccc;	width:100px;	font-size:12px;	line-height:1em;	padding:4px;	font-family:"roboto",arial;}
+
+.table-txt {
+    border-right: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    float: left;
+    padding: 1%;
+    text-align: center;
+    width: 7%;
+}
+.table-txt-element {
+    border-right: 1px solid #A8A7A7;
+    float: left;
+    padding: 1%;
+    text-align: center;
+    width: 7%;
+}
+
+#newLeadSecondaryPhoneEx {
+    border: 1px solid #CCCCCC;
+    float: left;
+    font-family: "roboto",arial;
+    font-size: 12px;
+    line-height: 1em;
+    padding: 4px;
+    width: 55px !important;
+}
+#newLeadThirdConPhoneEx {
+    border: 1px solid #CCCCCC;
+    float: left;
+    font-family: "roboto",arial;
+    font-size: 12px;
+    line-height: 1em;
+    padding: 4px;
+    width: 55px !important;
+}
+.table-email {
+    border-right: 1px solid #FFFFFF;
+    color: #FFFFFF;
+    float: left;
+    padding: 1%;
+    text-align: center;
+    width: 16%;
+}
+.table-email-element {
+    border-right: 1px solid #A8A7A7;
+    float: left;
+    padding: 1%;
+    text-align: center;
+    width: 16%;
+}
+#newLeadPrimaryEmail {
+    border: 1px solid #CCCCCC;
+    float: left;
+    font-family: "roboto",arial;
+    font-size: 12px;
+    line-height: 1em;
+    padding: 4px;
+    width: 140px !important;
+}
+#newLeadThirdConEmail {
+    border: 1px solid #CCCCCC;
+    float: left;
+    font-family: "roboto",arial;
+    font-size: 12px;
+    line-height: 1em;
+    padding: 4px;
+    width: 140px !important;
+}
+#newLeadSecondaryEmail {
+    border: 1px solid #CCCCCC;
+    float: left;
+    font-family: "roboto",arial;
+    font-size: 12px;
+    line-height: 1em;
+    padding: 4px;
+    width: 140px !important;
+}
+#editLeadSecPhoneExt
+{
+    border: 1px solid #CCCCCC;
+    font-family: "roboto",arial;
+    font-size: 12px;
+    line-height: 1em;
+    padding: 4px;
+    width: 55px !important;
+    float:left;
+}
+#editLeadThirdConPhoneEx
+{
+    border: 1px solid #CCCCCC;
+    font-family: "roboto",arial;
+    font-size: 12px;
+    line-height: 1em;
+    padding: 4px;
+    width: 55px !important;
+    float:left;
+}
+#editLeadPrimaryEmail {
+    border: 1px solid #CCCCCC;
+    float: left;
+    font-family: "roboto",arial;
+    font-size: 12px;
+    line-height: 1em;
+    padding: 4px;
+    width: 140px !important;
+}
+#editLeadSecondaryEmail {
+    border: 1px solid #CCCCCC;
+    float: left;
+    font-family: "roboto",arial;
+    font-size: 12px;
+    line-height: 1em;
+    padding: 4px;
+    width: 140px !important;
+}
+#editLeadThirdConEmail {
+    border: 1px solid #CCCCCC;
+    float: left;
+    font-family: "roboto",arial;
+    font-size: 12px;
+    line-height: 1em;
+    padding: 4px;
+    width: 140px !important;
+}
+.headrightChid{        
+	width:410px;       
+    height:32px;        
+    padding:10px 30px 10px 10px;        
+    float:right;                
+    }
+.creCanBtn2child{
+	padding-right:26px;	
+	padding-top: 0;
+}
+ ul#menu li ul.sub-menu li a:hover{
+	color:#000;
+	background:#fff; 
+}
+
+#menu li ul.sub-menu li a {
+    color: #097471;
+    display: inline-block;
+    padding: 5px;
+    text-decoration: none;
+    width: 150px;
+    height:20px;
+}
+.creLRBtnlead{
+	float:right !important;
+}
+
+#passwordValid_Error{
+ clear:both; width:375px ! important;height:15px;        font-size:11px;        color:red;        padding-top:5px;      
+}
+.activityimgagUp{
+	border:1px solid #eee;height:320px;
+}
+
+#newUserconfirmPasswordValidError{
+	clear:both; width:172px;height:15px;        font-size:11px;        color:red;        padding-top:5px;
+}
+#conformPwdValid_Error{
+	clear:both; width:172px;height:15px;        font-size:11px;        color:red;        padding-top:5px;
+}
+.btnAlign{
+	width:915px ! important;
+}
+/****************************** Drag and drop image in activity ****************************************/
+.imgViewBrd{
+width:600px;
+margin:auto;
+display:inline-block;
+}
+
+.imgViewBrd .imgName{
+width: 450px;
+height:25px;
+float:left;
+}
+
+.imgViewBrd .imgName a{
+	color:#000;
+	text-decoration:none;
+	font-weight:bold;
+}
+.imgViewBrd .trash{
+width: 6px;
+height:25px;
+float:left;
+}
+
+.imgViewBrd .imgRmv{
+width: 80px;
+height:25px;
+float:left;
+cursor: pointer;
+}
+
+.imgViewBrd .imgRmv p{
+font-size:14px;
+font-weight:500 !important;
+font-style:italic;
+}
+/*********************** End **************/
