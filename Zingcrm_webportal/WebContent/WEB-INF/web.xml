@@ -26,7 +26,7 @@
 		/WEB-INF/spring-security.xml
 		/WEB-INF/spring-servlet.xml	
 		/WEB-INF/mail.xml
-		/WEB-INF/jms-config.xml
+		/WEB-INF/connectors-config.xml
 		</param-value>
 	</context-param>
 
