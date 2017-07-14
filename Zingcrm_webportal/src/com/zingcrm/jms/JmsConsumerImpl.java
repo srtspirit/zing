@@ -8,15 +8,11 @@ import org.springframework.jms.annotation.JmsListener;
 import com.zingcrm.forms.LeadForms;
 import com.zingcrm.integration.IntegrationService;
 
-public class JmsConsumerImpl implements JmsConsumer {
+public class JmsConsumerImpl  {
 	@Autowired
 	private IntegrationService integrationService;
 
-	@Override
-	public void consume() {
-		// TODO Auto-generated method stub
-		
-	}
+
 	
 	public void updateBpIntegration(LeadForms lead){
 		System.out.println(lead.getAddress());

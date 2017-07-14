@@ -1,8 +1,13 @@
 package com.zingcrm.integration;
 
+import javax.ws.rs.core.MediaType;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import com.zingcrm.forms.LeadForms;
@@ -14,19 +19,21 @@ public class IntegrationService {
 	private JmsProducer jmsProducer;
 	@Autowired
 	private RestTemplate restTemplate;
-	@Value("${bus.rest.upgradebp.url}")
-	private String esbUrlUpdateBp;
 	
-
 	public void updateBPIntegration(LeadForms lead){
+		ResponseEntity<String> response = null;
 		try {
-			restTemplate.postForObject(esbUrlUpdateBp, lead, String.class);
-		} catch (Throwable e) {
+			HttpEntity<LeadForms> requestEntity = new HttpEntity<LeadForms>(lead);
+			requestEntity.getHeaders().setContentType(new org.springframework.http.MediaType(MediaType.APPLICATION_XML));
+			response = restTemplate.postForEntity("http://localhost:8161/api/message/hui?type=queue", requestEntity, String.class);
+		} catch (RestClientException e) {
 			e.printStackTrace();
 			jmsProducer.sendObjectMessage("DELAYED", lead);
-		}	
+		}
+		if (response.getStatusCode() != HttpStatus.OK){
+			jmsProducer.sendObjectMessage("DELAYED", lead);
+		}
 	}
-	
 
 	public JmsProducer getJmsProducer() {
 		return jmsProducer;
@@ -35,20 +42,12 @@ public class IntegrationService {
 	public void setJmsProducer(JmsProducer jmsProducer) {
 		this.jmsProducer = jmsProducer;
 	}
+
 	public RestTemplate getRestTemplate() {
 		return restTemplate;
 	}
 
 	public void setRestTemplate(RestTemplate restTemplate) {
 		this.restTemplate = restTemplate;
-	}
-
-	public String getEsbUrlUpdateBp() {
-		return esbUrlUpdateBp;
-	}
-
-
-	public void setEsbUrlUpdateBp(String esbUrlUpdateBp) {
-		this.esbUrlUpdateBp = esbUrlUpdateBp;
 	}
 }

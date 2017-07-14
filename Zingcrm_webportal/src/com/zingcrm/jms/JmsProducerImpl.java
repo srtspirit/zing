@@ -17,13 +17,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class JmsProducerImpl implements JmsProducer {
 	@Autowired
-	ConnectionFactory connectionFactory;
+	protected ConnectionFactory connectionFactory;
 	
 	@Override
 	public boolean sendObjectMessage(String destinationName, Serializable obj){
 		Connection connection = null;
 		Session session = null;
-		Destination destination = null;
 		MessageProducer producer = null;
 		Message message = null;
 		
@@ -31,10 +30,9 @@ public class JmsProducerImpl implements JmsProducer {
 			connection = connectionFactory.createConnection();
 			session = connection.createSession(true, Session.AUTO_ACKNOWLEDGE);
 			
-			destination = session.createQueue(destinationName);
-			producer = session.createProducer(destination);
-			producer.setDeliveryMode(DeliveryMode.PERSISTENT);
+			producer = createProducer(session, destinationName);
 			message = session.createObjectMessage(obj);
+			message.setStringProperty("InitialDestination", destinationName);
 			producer.send(message);
 			session.commit();
 		} catch(JMSException e){
@@ -57,6 +55,52 @@ public class JmsProducerImpl implements JmsProducer {
 		}
 		
 		return true;
+	}
+
+	@Override
+	public boolean sendMessage(String destinationName, Message message) {
+		Connection connection = null;
+		Session session = null;
+		MessageProducer producer = null;
+		
+		try{
+			connection = connectionFactory.createConnection();
+			session = connection.createSession(true, Session.AUTO_ACKNOWLEDGE);;
+			producer = createProducer(session, destinationName);
+			producer.send(message);
+			session.commit();
+		} catch(JMSException e){
+			e.printStackTrace();
+			return false;
+		} finally{
+			if (connection != null){
+				try {
+					connection.close();
+				} catch (JMSException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return true;
+	}
+	
+	@Override
+	public boolean sendMessage(Message message){
+		try {
+			return sendMessage(message.getStringProperty("InitialDestination"), message);
+		} catch (JMSException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	protected MessageProducer createProducer(Session session, String destinationName) throws JMSException{
+		Destination destination = session.createQueue(destinationName);
+		MessageProducer producer = session.createProducer(destination);
+		producer.setDeliveryMode(DeliveryMode.PERSISTENT);
+		
+		return producer;
 	}
 	
 //	public static void main(String args[]){

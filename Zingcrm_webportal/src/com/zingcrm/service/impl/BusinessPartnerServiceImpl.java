@@ -425,7 +425,7 @@ public class BusinessPartnerServiceImpl implements BusinessPartnerService {
 	}
 
 	@Override
-	@Transactional
+	@Transactional(rollbackFor = BusinessException.class)
 	public String updateLead(LeadForms leadForm) throws BusinessException {
 		try {
 			String data="";

@@ -234,12 +234,14 @@ public class BusinessPartnerDAOImpl implements BusinessPartnerDAO {
 
 		@Override
 		public void updateLead(LeadForms leadForm) throws BusinessException {
-			 Session session = null;  
-			   Transaction tx = null;  
+			//AndreyV: commented out session & transaction because transactions are demarcated on the level above (@Transactional)
+			//and I need it there because I send jms message and we don't want to commit this transaction here and fail later on jms 
+			//Session session = null;  
+			   //Transaction tx = null;  
 			   boolean flag;
 		    try {
-		    	session = sessionFactory.openSession();
-				tx = session.beginTransaction();  
+		    	//session = sessionFactory.getCurrentSession();
+				//tx = session.beginTransaction();  
 				BusinessPartner lead=(BusinessPartner) sessionFactory.getCurrentSession().createQuery("from BusinessPartner where Id = :id").setParameter("id",leadForm.getId()).list().get(0);
 				flag=lead.getCustomFlag();
 		    	lead.setAccountId(leadForm.getOrg());
@@ -323,13 +325,13 @@ public class BusinessPartnerDAOImpl implements BusinessPartnerDAO {
 			    	}
 			    	sessionFactory.getCurrentSession().save(log);
 		 		}
-	            tx.commit();  
+	            //tx.commit();  
 	        } catch (HibernateException e) {
-	        	 tx.rollback();  
+	        	 //tx.rollback();  
 	            log.fatal("LEA_DAO_008", e);
 	            throw new BusinessException(
 	                    "LeadDAOImpl ::updateLead()");
-	        }finally {session.close();}  
+	        }//finally {session.close();}  
 		}
 
 		@SuppressWarnings("unchecked")
