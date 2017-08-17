@@ -1,7 +1,9 @@
 package com.zingcrm.integration;
 
+import javax.jms.ObjectMessage;
 import javax.ws.rs.core.MediaType;
 
+import org.apache.activemq.command.ActiveMQObjectMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -24,8 +26,8 @@ public class IntegrationService {
 		ResponseEntity<String> response = null;
 		try {
 			HttpEntity<LeadForms> requestEntity = new HttpEntity<LeadForms>(lead);
-			requestEntity.getHeaders().setContentType(new org.springframework.http.MediaType(MediaType.APPLICATION_XML));
-			response = restTemplate.postForEntity("http://localhost:8161/api/message/hui?type=queue", requestEntity, String.class);
+			//requestEntity.getHeaders().setContentType(new org.springframework.http.MediaType(MediaType.APPLICATION_XML));
+			response = restTemplate.postForEntity("http://localhost:8161/api/message/ESB.IN.CRM.BUSINESSPARTNER.UPDATE?type=queue", requestEntity, String.class);
 		} catch (RestClientException e) {
 			e.printStackTrace();
 			jmsProducer.sendObjectMessage("DELAYED", lead);

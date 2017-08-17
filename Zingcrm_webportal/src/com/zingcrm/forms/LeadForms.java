@@ -2,9 +2,14 @@ package com.zingcrm.forms;
 
 import java.io.Serializable;
 
+import org.codehaus.jackson.map.annotate.JsonSerialize;
+import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
+
+@JsonSerialize(include = Inclusion.NON_NULL)
 public class LeadForms implements Serializable {
 
 	private static final long serialVersionUID = -6863394476543622601L;
+	private String messageId; //used in integration purpose. For message correlation
 
 
 	private int id;
@@ -895,8 +900,13 @@ public class LeadForms implements Serializable {
 		this.leadnotes = leadnotes;
 	}
 
+	public String getMessageId(){
+		return messageId;
+	}
 
-
+	public void setMessageId(String messageId){
+		this.messageId = messageId;
+	}
 
 
 }

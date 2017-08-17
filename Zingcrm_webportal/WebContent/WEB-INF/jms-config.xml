@@ -21,7 +21,7 @@
 	<bean id="jmsConsumer" class="com.zingcrm.jms.JmsConsumerImpl"/>
 	
 	<jms:listener-container container-type="default" connection-factory="connectionFactory" acknowledge="auto">  
-		<jms:listener  destination="BUSINESSPARTNER.UPDATE"  ref="jmsConsumer" method="updateBpIntegration"></jms:listener>  
+		<jms:listener destination="BUSINESSPARTNER.UPDATE"  ref="jmsConsumer" method="onMessage"></jms:listener>  
 	</jms:listener-container>
 	
 	<task:annotation-driven/>
