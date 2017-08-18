@@ -12,6 +12,8 @@ import javax.jms.MessageProducer;
 import javax.jms.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -19,8 +21,21 @@ public class JmsProducerImpl implements JmsProducer {
 	@Autowired
 	protected ConnectionFactory connectionFactory;
 	
+	protected JmsTemplate springTemplate;
+	
 	@Override
-	public boolean sendObjectMessage(String destinationName, Serializable obj){
+	public boolean sendObjectMessage(String destinationName, final Serializable obj){
+		springTemplate = new JmsTemplate(connectionFactory);
+		springTemplate.send(destinationName, new MessageCreator() {
+			
+			@Override
+			public Message createMessage(Session session) throws JMSException {
+				return session.createObjectMessage(obj);
+			}
+		});
+		
+		if (true) return true;
+		
 		Connection connection = null;
 		Session session = null;
 		MessageProducer producer = null;
@@ -28,13 +43,13 @@ public class JmsProducerImpl implements JmsProducer {
 		
 		try{
 			connection = connectionFactory.createConnection();
-			session = connection.createSession(true, Session.AUTO_ACKNOWLEDGE);
+			session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 			
 			producer = createProducer(session, destinationName);
 			message = session.createObjectMessage(obj);
 			message.setStringProperty("InitialDestination", destinationName);
 			producer.send(message);
-			session.commit();
+			//session.commit();
 		} catch(JMSException e){
 			e.printStackTrace();
 			try {

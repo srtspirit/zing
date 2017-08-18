@@ -48,7 +48,7 @@
 	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/log4j-1.2.17.jar"/>
 	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/mail-1.4.3.jar"/>
 	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/mysql-connector-java-5.1.19-bin.jar"/>
-	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/org.springframework.test-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/org.springframework.test-3.0.5.RELEASE.jar" sourcepath="C:/Users/Andreyv/.m2/repository/org/springframework/spring-test/3.0.5.RELEASE/spring-test-3.0.5.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/poi-3.9-20121203.jar"/>
 	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/poi-ooxml-3.9-20121203.jar"/>
 	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/poi-ooxml-schemas-3.9-20121203.jar"/>
@@ -80,16 +80,23 @@
 	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/tomcat-util.jar"/>
 	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/validation-api-1.0.0.GA.jar"/>
 	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/websocket-api.jar"/>
-	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/activemq-core-5.7.0.jar"/>
+	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/activemq-core-5.7.0.jar" sourcepath="C:/Users/Andreyv/.m2/repository/org/apache/activemq/activemq-core/5.7.0/activemq-core-5.7.0-sources.jar"/>
 	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/management-api-1.1-rev-1.jar"/>
 	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/slf4j-api-1.7.25.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.6.0_45">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/javax.jms-1.1.jar"/>
-	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/spring-jms-4.0.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/spring-jms-4.0.9.RELEASE.jar" sourcepath="C:/Users/Andreyv/.m2/repository/org/springframework/spring-jms/4.0.9.RELEASE/spring-jms-4.0.9.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/spring-jms-4.3.8.RELEASE.jar"/>
+	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/transactions-jdbc-4.0.1.jar"/>
+	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/transactions-4.0.1.jar"/>
+	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/transactions-api-4.0.1.jar"/>
+	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/transactions-jta-4.0.1.jar"/>
+	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/atomikos-util-4.0.1.jar"/>
+	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/transactions-hibernate3-4.0.1.jar"/>
+	<classpathentry kind="lib" path="E:/apache-tomcat-7.0.47/lib/transactions-jms-4.0.1.jar" sourcepath="C:/Users/Andreyv/.m2/repository/com/atomikos/transactions-jms/4.0.1/transactions-jms-4.0.1-sources.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -11,6 +11,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.Session;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
@@ -22,6 +25,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -108,6 +113,9 @@ public class BusinessPartnerServiceImpl implements BusinessPartnerService {
 	
 	@Autowired
 	private JmsProducer jmsTemplate;
+	
+	@Autowired
+	public JmsTemplate springJms;
 	
 	
 	private static JAXBContext JAXBCONTEXT;
@@ -426,7 +434,7 @@ public class BusinessPartnerServiceImpl implements BusinessPartnerService {
 
 	@Override
 	@Transactional(rollbackFor = BusinessException.class)
-	public String updateLead(LeadForms leadForm) throws BusinessException {
+	public String updateLead(final LeadForms leadForm) throws BusinessException {
 		try {
 			String data="";
 			List<BusinessPartner> li = leadDAO.getEditLeadNameValidation(""+leadForm.getOrg(), leadForm.getLead(),
@@ -443,9 +451,18 @@ public class BusinessPartnerServiceImpl implements BusinessPartnerService {
 				leadDAO.updateLead(leadForm);
 				/*data=leadForm.getAddress()+","+leadForm.getAddress2()+","+leadForm.getCityName()+","+leadForm.getStateName()+","+leadForm.getZipcode()+","+leadForm.getCountryName();
 				updateLatitude(leadForm.getId(),data);*/
-				if (!jmsTemplate.sendObjectMessage(UPDATE_BP_QUEUE_NAME, leadForm)){
-					throw new BusinessException("couldn't send integration message");
-				}
+				
+//				if (!jmsTemplate.sendObjectMessage(UPDATE_BP_QUEUE_NAME, leadForm)){
+//					throw new BusinessException("couldn't send integration message");
+//				}
+				springJms.send(UPDATE_BP_QUEUE_NAME, new MessageCreator() {
+					
+					@Override
+					public Message createMessage(Session session) throws JMSException {
+						return session.createObjectMessage(leadForm);
+					}
+				});
+				
 				return "success";
 			}
 			

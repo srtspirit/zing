@@ -17,9 +17,10 @@
 		p:username="zingcrm_admin" p:password="zingcrm_admin" /> 
 		 -->
 		<bean id="dataSource"
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://54.84.92.162:3306/zingcrm"
-		p:username="zingcrm_admin" p:password="crmWorld#@!" /> 
+		class="com.mysql.jdbc.jdbc2.optional.MysqlXADataSource"
+		p:url="jdbc:mysql://54.84.92.162:3306/zingcrm"
+		p:user="zingcrm_admin" p:password="crmWorld#@!"
+		p:pinGlobalTxToPhysicalConnection="true" /> 
 	<context:annotation-config />
 	<context:component-scan base-package="com.zingcrm.entity" />
 	<context:component-scan base-package="com.zingcrm" />
@@ -28,9 +29,15 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
 		p:driverClassName="com.mysql.jdbc.Driver" p:url="jdbc:mysql://192.168.100.206:3307/zingcrm"
 		p:username="zingcrm_admin" p:password="zingcrm_admin" /> -->
+		
+		<bean id="xaDataSource" class="com.atomikos.jdbc.AtomikosDataSourceBean" init-method="init" destroy-method="close">
+			<property name="uniqueResourceName" value="xaDataSource"/>
+			<property name="xaDataSource" ref="dataSource"/>
+			<property name="poolSize" value="3"/>
+		</bean>
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="dataSource" ref="dataSource"></property>
+		<property name="dataSource" ref="xaDataSource"></property>
 		<property name="annotatedClasses">
 			<list>
 			    <!-- <value>com.zingcrm.entity.ForgotPassword</value> -->
@@ -65,14 +72,25 @@
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.show_sql">false</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.transaction.factory_class">org.hibernate.engine.transaction.internal.jta.JtaTransactionFactory</prop>
+				<prop key="hibernate.transaction.manager_lookup_class">com.atomikos.icatch.jta.hibernate3.TransactionManagerLookup</prop> 
 			</props>
 		</property>
 	</bean>
 
 	<tx:annotation-driven transaction-manager="transactionManager"/>
-	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-		<property name="sessionFactory" ref="sessionFactory"></property>
+	<bean id="amikosTransactionManager" class="com.atomikos.icatch.jta.UserTransactionManager" init-method="init" destroy-method="close">
+<!-- 		<property name="sessionFactory" ref="sessionFactory"></property> -->
+		<property name="forceShutdown" value="false"/>
+	</bean>
+	
+	<bean id="userTransaction" class="com.atomikos.icatch.jta.UserTransactionImp">
+		<property name="transactionTimeout" value="1000"/>
+	</bean>
+	
+	<bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager">
+		<property name="transactionManager" ref="amikosTransactionManager"/>
+		<property name="userTransaction" ref="userTransaction"/>
 	</bean>
 	
 </beans>
